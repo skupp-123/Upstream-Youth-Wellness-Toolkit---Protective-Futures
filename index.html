@@ -1,0 +1,2107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Upstream Youth Wellness Framework: Protective Futures</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --forest:   #2C5F2D;
+  --moss:     #4A7C59;
+  --sage:     #84B59F;
+  --cedar:    #3A2A1A;
+  --amber:    #C9A84C;
+  --amber-lt: #E8C96A;
+  --copper:   #B85042;
+  --terracotta:#9B3A2A;
+  --teal:     #2E7D82;
+  --deep-teal:#1E5A60;
+  --plum:     #5A3572;
+  --cream:    #F5F0E8;
+  --parchment:#EDE5D4;
+  --ink:      #1A1208;
+  --muted:    #6B5E4A;
+  --border:   rgba(132,181,159,0.25);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── HEADER ── */
+.site-header {
+  background: var(--forest);
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 40px;
+  border-bottom: 1px solid rgba(132,181,159,0.2);
+}
+
+.wordmark {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.35rem;
+  color: var(--amber);
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+.wordmark span {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 300;
+  color: var(--sage);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.header-badge {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--sage);
+  text-align: right;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+/* ── TABS ── */
+.tab-bar {
+  display: flex;
+  padding: 0 30px;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.tab-bar::-webkit-scrollbar { display: none; }
+
+.tab-btn {
+  background: none;
+  border: none;
+  color: rgba(232,220,200,0.55);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  letter-spacing: 0.02em;
+  position: relative;
+}
+
+.tab-btn:hover { color: var(--sage); }
+
+.tab-btn.active {
+  color: var(--amber);
+  border-bottom-color: var(--amber);
+}
+
+.tab-num {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  opacity: 0.6;
+  margin-right: 6px;
+}
+
+/* ── PANELS ── */
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* ── TAB 1: FRAMEWORK ── */
+.hero {
+  background: linear-gradient(135deg, var(--forest) 0%, #1A3D1B 50%, #0E2510 100%);
+  padding: 70px 60px 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(201,168,76,0.06) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(46,125,130,0.08) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.hero-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--sage);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  opacity: 0.8;
+}
+
+.hero-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  color: var(--cream);
+  line-height: 1.15;
+  max-width: 700px;
+  margin-bottom: 10px;
+}
+
+.hero-title em {
+  color: var(--amber);
+  font-style: italic;
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  color: var(--sage);
+  max-width: 560px;
+  line-height: 1.7;
+  margin-top: 16px;
+  margin-bottom: 36px;
+  font-weight: 300;
+}
+
+.hero-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chip {
+  background: rgba(132,181,159,0.12);
+  border: 1px solid rgba(132,181,159,0.35);
+  color: var(--sage);
+  font-size: 0.72rem;
+  padding: 5px 14px;
+  border-radius: 20px;
+  letter-spacing: 0.04em;
+}
+
+/* Framework content */
+.framework-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+.framework-main {
+  padding: 50px 60px;
+  border-right: 1px solid var(--border);
+}
+
+.framework-sidebar {
+  padding: 50px 40px;
+  background: var(--parchment);
+}
+
+.section-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 20px;
+  opacity: 0.85;
+}
+
+.section-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.6rem;
+  color: var(--forest);
+  margin-bottom: 18px;
+  line-height: 1.2;
+}
+
+.body-text {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+/* Braid cards */
+.braid-row {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 28px 0;
+}
+
+.braid-card {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 16px 18px;
+  border-radius: 10px;
+  border-left: 3px solid;
+  background: white;
+}
+
+.braid-card.outer { border-color: var(--moss); }
+.braid-card.middle { border-color: var(--teal); }
+.braid-card.inner { border-color: var(--copper); }
+.braid-card.cross { border-color: var(--amber); }
+
+.braid-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1rem;
+}
+
+.braid-card.outer .braid-icon { background: rgba(74,124,89,0.15); }
+.braid-card.middle .braid-icon { background: rgba(46,125,130,0.15); }
+.braid-card.inner .braid-icon { background: rgba(184,80,66,0.15); }
+.braid-card.cross .braid-icon { background: rgba(201,168,76,0.15); }
+
+.braid-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: 0.95rem;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.braid-desc {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Sidebar cards */
+.sidebar-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 16px;
+  border-top: 3px solid var(--amber);
+}
+
+.sidebar-card-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1rem;
+  color: var(--forest);
+  margin-bottom: 10px;
+}
+
+.sidebar-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-card li {
+  font-size: 0.8rem;
+  color: var(--muted);
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.5;
+}
+
+.sidebar-card li::before {
+  content: '–';
+  color: var(--amber);
+  flex-shrink: 0;
+  margin-top: 0;
+}
+
+.ally-note {
+  background: rgba(44,95,45,0.06);
+  border: 1px solid rgba(44,95,45,0.2);
+  border-radius: 10px;
+  padding: 18px;
+  margin-top: 24px;
+}
+
+.ally-note p {
+  font-size: 0.78rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.ally-note strong {
+  color: var(--forest);
+  font-weight: 600;
+}
+
+/* Streams grid */
+.streams-section {
+  padding: 50px 60px;
+  background: white;
+  border-top: 1px solid var(--border);
+}
+
+.streams-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.stream-card {
+  border-radius: 10px;
+  padding: 20px;
+  background: var(--parchment);
+  border-top: 3px solid;
+  transition: transform 0.2s;
+}
+
+.stream-card:hover { transform: translateY(-2px); }
+.stream-card:nth-child(1) { border-color: var(--forest); }
+.stream-card:nth-child(2) { border-color: var(--moss); }
+.stream-card:nth-child(3) { border-color: var(--copper); }
+.stream-card:nth-child(4) { border-color: var(--terracotta); }
+.stream-card:nth-child(5) { border-color: var(--teal); }
+.stream-card:nth-child(6) { border-color: var(--amber); }
+
+.stream-letter {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--amber);
+  margin-bottom: 8px;
+  letter-spacing: 0.1em;
+}
+
+.stream-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1rem;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.stream-desc {
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ── TAB 2: ECOSYSTEM MAP ── */
+.map-header {
+  background: linear-gradient(135deg, #0E2510 0%, var(--forest) 100%);
+  padding: 50px 60px;
+  position: relative;
+}
+
+.map-header-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.2rem;
+  color: var(--cream);
+  margin-bottom: 10px;
+}
+
+.map-header-sub {
+  font-size: 0.9rem;
+  color: var(--sage);
+  max-width: 600px;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.map-canvas-wrapper {
+  background: #111A0E;
+  height: 620px;
+  position: relative;
+  overflow: hidden;
+}
+
+#ecosystemCanvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.map-controls {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(20,38,20,0.85);
+  border: 1px solid rgba(132,181,159,0.3);
+  border-radius: 20px;
+  padding: 8px 20px;
+  font-size: 0.7rem;
+  color: var(--sage);
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 0.05em;
+  pointer-events: none;
+}
+
+#ecosystemTooltip {
+  position: absolute;
+  pointer-events: none;
+  display: none;
+  background: rgba(10,22,10,0.97);
+  color: var(--cream);
+  border: 1px solid var(--sage);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 0.78rem;
+  max-width: 280px;
+  line-height: 1.6;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  z-index: 10;
+}
+
+#ecosystemTooltip strong {
+  color: var(--amber);
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.85rem;
+}
+
+.ecosystem-legend {
+  background: white;
+  padding: 30px 60px;
+  border-top: 1px solid var(--border);
+}
+
+.legend-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.legend-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.players-section {
+  padding: 40px 60px;
+  background: var(--parchment);
+}
+
+.players-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.player-card {
+  background: white;
+  border-radius: 10px;
+  padding: 18px 20px;
+  border-left: 3px solid;
+}
+
+.player-card.nation { border-color: var(--forest); }
+.player-card.health { border-color: var(--teal); }
+.player-card.community { border-color: var(--moss); }
+.player-card.school { border-color: var(--amber); }
+.player-card.funding { border-color: var(--copper); }
+
+.player-type {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.player-card.nation .player-type { color: var(--forest); }
+.player-card.health .player-type { color: var(--teal); }
+.player-card.community .player-type { color: var(--moss); }
+.player-card.school .player-type { color: var(--amber); }
+.player-card.funding .player-type { color: var(--copper); }
+
+.player-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: 0.95rem;
+  color: var(--ink);
+  margin-bottom: 5px;
+}
+
+.player-role {
+  font-size: 0.77rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ── TAB 3: CO-DESIGN ── */
+.codesign-hero {
+  background: linear-gradient(135deg, #2E7D82 0%, #1E5A60 60%, #0D3A3E 100%);
+  padding: 60px 60px 50px;
+}
+
+.codesign-hero-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.2rem;
+  color: var(--cream);
+  margin-bottom: 14px;
+}
+
+.codesign-hero-sub {
+  font-size: 0.9rem;
+  color: rgba(132,181,159,0.9);
+  max-width: 580px;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.workshop-content {
+  padding: 50px 60px;
+  background: white;
+}
+
+.principles-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 28px 0 40px;
+}
+
+.principle-card {
+  background: var(--parchment);
+  border-radius: 12px;
+  padding: 24px 20px;
+  text-align: center;
+  border-top: 3px solid var(--teal);
+}
+
+.principle-num {
+  font-family: 'Space Mono', monospace;
+  font-size: 1.8rem;
+  color: var(--teal);
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.principle-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1rem;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.principle-desc {
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.workshop-phases {
+  margin-top: 40px;
+}
+
+.phase {
+  display: flex;
+  gap: 24px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+}
+
+.phase:last-child { border-bottom: none; }
+
+.phase-num {
+  width: 44px;
+  height: 44px;
+  background: var(--teal);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.phase-body {}
+
+.phase-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.05rem;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.phase-duration {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--amber);
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+
+.phase-desc {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.phase-activities {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.activity-tag {
+  background: rgba(46,125,130,0.1);
+  border: 1px solid rgba(46,125,130,0.25);
+  color: var(--teal);
+  font-size: 0.7rem;
+  padding: 3px 10px;
+  border-radius: 12px;
+}
+
+/* ── TAB 4: THREE PATHS ── */
+.paths-hero {
+  background: linear-gradient(135deg, #2C1810 0%, #5A2A1A 50%, #3A1A0E 100%);
+  padding: 60px 60px 50px;
+  position: relative;
+  overflow: hidden;
+}
+
+.paths-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; left: 0; right: 0;
+  height: 40px;
+  background: white;
+  clip-path: ellipse(55% 100% at 50% 100%);
+}
+
+.paths-hero-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.4rem;
+  color: var(--cream);
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+
+.paths-hero-sub {
+  font-size: 0.9rem;
+  color: rgba(245,160,128,0.85);
+  max-width: 600px;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.paths-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding: 50px 60px 40px;
+  background: white;
+}
+
+.path-card {
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.path-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.14);
+}
+
+.path-header {
+  padding: 28px 24px 20px;
+  position: relative;
+}
+
+.path-card:nth-child(1) .path-header { background: linear-gradient(135deg, #2C5F2D, #1A3D1B); }
+.path-card:nth-child(2) .path-header { background: linear-gradient(135deg, #2E7D82, #1A4E52); }
+.path-card:nth-child(3) .path-header { background: linear-gradient(135deg, #5A3572, #3A1E4E); }
+
+.path-pronoun {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.12em;
+  margin-bottom: 6px;
+}
+
+.path-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.7rem;
+  color: white;
+  margin-bottom: 4px;
+}
+
+.path-age-location {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 12px;
+}
+
+.path-hook {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.65;
+  font-style: italic;
+}
+
+.path-body {
+  padding: 24px;
+  background: var(--parchment);
+  flex: 1;
+}
+
+.path-section-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 8px;
+  margin-top: 16px;
+}
+
+.path-section-label:first-child { margin-top: 0; }
+
+.path-text {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.path-streams {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 6px;
+}
+
+.stream-tag {
+  font-size: 0.68rem;
+  padding: 2px 9px;
+  border-radius: 10px;
+  background: rgba(44,95,45,0.1);
+  color: var(--forest);
+  border: 1px solid rgba(44,95,45,0.2);
+}
+
+.paths-framework-note {
+  padding: 30px 60px 50px;
+  background: white;
+}
+
+.framework-note-box {
+  background: linear-gradient(135deg, rgba(44,95,45,0.05), rgba(46,125,130,0.05));
+  border: 1px solid rgba(44,95,45,0.2);
+  border-radius: 14px;
+  padding: 32px 36px;
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.framework-note-quote {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.4rem;
+  color: var(--forest);
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.framework-note-quote em { color: var(--amber); font-style: italic; }
+
+.framework-note-sub {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+/* ── FOOTER ── */
+.site-footer {
+  background: var(--cedar);
+  padding: 30px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(201,168,76,0.15);
+}
+
+.footer-land-ack {
+  font-size: 0.72rem;
+  color: rgba(232,220,200,0.55);
+  line-height: 1.6;
+  max-width: 520px;
+  font-style: italic;
+}
+
+.footer-version {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.62rem;
+  color: rgba(201,168,76,0.5);
+  text-align: right;
+  line-height: 1.7;
+}
+
+/* ── SUPERSCRIPT REFERENCES ── */
+sup.ref {
+  font-size: 0.6rem;
+  color: var(--teal);
+  font-family: 'Space Mono', monospace;
+  cursor: help;
+  margin-left: 1px;
+  vertical-align: super;
+  line-height: 0;
+}
+sup.ref:hover { color: var(--amber); }
+.ref-tooltip {
+  display: none;
+  position: fixed;
+  background: var(--cedar);
+  color: var(--cream);
+  font-size: 0.72rem;
+  line-height: 1.5;
+  padding: 10px 14px;
+  border-radius: 8px;
+  max-width: 340px;
+  z-index: 999;
+  border: 1px solid var(--amber);
+  pointer-events: none;
+  font-family: 'DM Sans', sans-serif;
+}
+</style>
+<style>
+/* ── RESPONSIVE ── */
+  .framework-grid,
+  .streams-grid,
+  .players-grid,
+  .principles-row,
+  .paths-grid,
+  .legend-grid {
+    grid-template-columns: 1fr;
+  }
+  .framework-main { border-right: none; border-bottom: 1px solid var(--border); }
+  .hero, .framework-main, .framework-sidebar,
+  .streams-section, .map-header, .ecosystem-legend,
+  .players-section, .workshop-content, .paths-grid,
+  .paths-framework-note, .paths-hero, .codesign-hero,
+  .site-footer {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .header-top { padding: 12px 20px; }
+  .tab-bar { padding: 0 10px; }
+  .tab-btn { padding: 12px 12px; font-size: 0.72rem; }
+}
+</style>
+</head>
+<body>
+<div id="ref-tooltip" class="ref-tooltip"></div>
+<header class="site-header">
+  <div class="header-top">
+    <div class="wordmark">
+      Upstream Youth Wellness Framework: Protective Futures
+      <span>K'ómoks, We Wai Kai, and Wei Wai Kum Territories</span>
+    </div>
+    <div class="header-badge">
+      Social Innovation Toolkit<br>
+      Upstream Prevention · Youth Wellness
+    </div>
+  </div>
+  <nav class="tab-bar" id="tabBar">
+    <button class="tab-btn active" data-tab="framework">
+      <span class="tab-num">01</span>Protective Futures: Upstream Youth Wellness Framework
+    </button>
+    <button class="tab-btn" data-tab="ecosystem">
+      <span class="tab-num">02</span>Comox Valley Youth Wellness Ecosystem Map
+    </button>
+    <button class="tab-btn" data-tab="codesign">
+      <span class="tab-num">03</span>Youth Co-Design Workshop
+    </button>
+    <button class="tab-btn" data-tab="paths">
+      <span class="tab-num">04</span>Three Youth. Three Paths. One Framework.
+    </button>
+    <button class="tab-btn" data-tab="iceberg">
+      <span class="tab-num">05</span>What's Driving the Toxic Drug Poisoning Crisis
+    </button>
+    <button class="tab-btn" data-tab="references">
+      <span class="tab-num">06</span>References &amp; Potential Funding
+    </button>
+  </nav>
+</header>
+
+<!-- ══════════════════════════════════════════════════════
+     TAB 1: PROTECTIVE FUTURES FRAMEWORK
+══════════════════════════════════════════════════════ -->
+<div class="tab-panel active" id="tab-framework">
+
+  <section class="hero">
+    <div class="hero-label">Upstream Prevention · Relational Systems Change</div>
+    <h1 class="hero-title"><em>Upstream Youth Wellness Framework: Protective Futures</em></h1>
+    <p class="hero-subtitle">A peer-powered relational framework for youth thriving. Ages 14 to 24. North-Central Vancouver Island, BC.</p>
+    <div class="hero-chips">
+      <span class="chip">Primary Prevention</span>
+      <span class="chip">Harm Reduction as Literacy</span>
+      <span class="chip">Culture and Identity-Based</span>
+      <span class="chip">Equity-Deserving Youth Co-Design</span>
+      <span class="chip">Youth-Led by Design</span>
+      <span class="chip">Flexible by Design</span>
+    </div>
+  </section>
+
+  <div class="framework-grid">
+    <div class="framework-main">
+      <div class="section-label">The Framework</div>
+      <h2 class="section-title">A Braided Approach to Youth Thriving</h2>
+      <p class="body-text">This framework is built on the structure of a braid with multiple strands woven in order to become stronger together. It is not a program with a waitlist, but rather upstream infrastructure to build on resilience, and make crisis less likely.<sup class="ref" title="Public Health Agency of Canada. (2022). Youth Substance Use Prevention Program (YSUPP) Framework. PHAC confirms upstream, multi-determinant approaches are most effective for youth substance use prevention.">[1]</sup></p>
+      <p class="body-text">The framework follows youth direction and is designed to be adapted to each community's specific needs, protocols, and knowledge systems with local Nation direction brought in at the beginning.<sup class="ref" title="Truth and Reconciliation Commission of Canada. (2015). Calls to Action #18–24 affirm the right of Indigenous communities to lead health programs based on their own knowledge systems.">[2]</sup></p>
+      <p class="body-text">Equity-deserving youth (those facing the greatest structural barriers) are given lead voices at the table. This includes Indigenous youth, PWLLE (People with Lived and Living Experience), 2SLGBTQ+, neurodivergent youth, youth experiencing poverty or housing instability, racialized youth, and youth in or aged-out from government care. BC and Canadian public health research is unambiguous: these groups face compounding upstream disadvantage, therefore this is where upstream investment is the highest priority.<sup class="ref" title="McCreary Centre Society. (2023). BC Adolescent Health Survey. Indigenous, 2SLGBTQ+, and youth with care experience report significantly higher rates of substance use risk and lower access to culturally safe services across BC.">[4]</sup></p>
+
+      <div class="braid-row">
+        <div class="braid-card outer">
+          <div class="braid-icon">🌱</div>
+          <div>
+            <div class="braid-name">Outer Braid: Belonging and Connection</div>
+            <div class="braid-desc">Connection to nature · safe housing · food security · trusted relationships · school and community connectedness · the protective buffer that makes every other stream possible<sup class="ref" title="PHAC Blueprint for Action (2021). Healthy, supportive relationships between youth and adults, and school/community connectedness, are the single strongest protective factors against substance-related harm.">[1]</sup></div>
+          </div>
+        </div>
+        <div class="braid-card middle">
+          <div class="braid-icon">🔥</div>
+          <div>
+            <div class="braid-name">Middle Braid: Identity and Cultural Grounding</div>
+            <div class="braid-desc">Cultural teachings · language · ceremony · land connection · Indigenous identity as protective factor · <a href="https://www.substanceuse.ca/sites/default/files/files/IndigenousHarmReductionPolicyBrief.pdf" target="_blank" style="color:var(--teal);text-decoration:underline;">Harm reduction as education, empowerment, ceremony, and a way to decolonize care</a><sup class="ref" title="FNHA. (2020). With Open Arms. Cultural identity and connection are primary protective factors for Indigenous youth. Harm reduction framed as ceremony: safety, truth, and support over shame.">[3]</sup> · decolonization of body, mind, and spirit</div>
+          </div>
+        </div>
+        <div class="braid-card inner">
+          <div class="braid-icon">⭐</div>
+          <div>
+            <div class="braid-name">Inner Braid: Purpose, Agency, and Economic Dignity</div>
+            <div class="braid-desc">Paid youth roles ($25/hr)<sup class="ref" title="BCCDC. (2023). Peer Payment Standards. $25/hr is the BC standard honoraria for peer workers contributing to health programs.">[5]</sup> · credentials and employment pathways · choice and agency · meaningful contribution · a relationship with the future as a protective factor<sup class="ref" title="CCSA (2022). Only 1 in 4 youth aged 16–24 reported excellent mental health; future-oriented economic inclusion is an underweighted upstream factor.">[9]</sup></div>
+          </div>
+        </div>
+        <div class="braid-card cross">
+          <div class="braid-icon">🤝</div>
+          <div>
+            <div class="braid-name">Cross-Braid: Trusted Adults and Mentorship</div>
+            <div class="braid-desc">The strand that weaves through everything. Youth consistently name trusted adults as their most reliable source of support<sup class="ref" title="CCSA/DFKC (2023). Youth identify parents and trusted adults as their most reliable source of information — ahead of schools and peers. The Icelandic Prevention Model is built on increasing the quantity and quality of time youth spend with trusted adults.">[9]</sup> · mentors · Elders · PWLLE facilitators · cultural knowledge carriers — present in every stream, cannot be separated</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="framework-sidebar">
+      <div class="section-label">At a Glance</div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Who It's For</div>
+        <ul>
+          <li>Youth ages 14–24 in North Island communities<sup class="ref" title="Island Health. (2024). CYMHSU Report. Identifies 14–24 as the priority age range for upstream substance use prevention in North Island region.">[7]</sup></li>
+          <li>Emphasis on Indigenous youth, LGBTQ2S+ youth, and youth experiencing disconnection<sup class="ref" title="McCreary Centre Society. (2023). BC Adolescent Health Survey. Indigenous and 2SLGBTQ+ youth report significantly higher rates of substance use risk and lower access to culturally safe services.">[4]</sup></li>
+          <li>Youth who are <em>not yet</em> in crisis. Upstream, not downstream<sup class="ref" title="PHAC. (2022). YSUPP Framework. Primary prevention targeting youth before substance use patterns are established is more cost-effective and impactful than treatment alone.">[1]</sup></li>
+          <li>Youth in Comox Valley, Campbell River, and surrounding territories</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Potential Leadership Principles</div>
+        <ul>
+          <li>If Indigenous youth want to take a lead in co-developing, then suggest Indigenous-led governance, with Nations shaping direction from the start (K'ómoks First Nation, We Wai Kai Nation, Wei Wai Kum Nation)</li>
+          <li>Elders, Matriarchs, and Knowledge Keepers could help youth shape cultural content</li>
+          <li>Youth with Living and Lived Experience of substance use and/or barriers to accessing services or supports to wellness could co-create and co-deliver</li>
+          <li>Youth would be paid decision-makers ($25/hr honoraria as per BCCDC Peer Payment Standards)</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Potential Braided Funding Model</div>
+        <ul>
+          <li>No single funder owns the work</li>
+          <li>First Nations Health Authority (FNHA)</li>
+          <li>Public Health Agency of Canada · YSUPP</li>
+          <li>Vancouver Foundation · McConnell Foundation</li>
+          <li>Indigenous Services Canada · BC Ministry of Health</li>
+          <li>Pilot range: $250K to $750K</li>
+        </ul>
+      </div>
+
+      <div class="ally-note">
+        <p><strong>A note on roles:</strong> This framework would not be owned by any single organization or individual, but instead follow youth direction. Supporting partners, including Nations, community organizations, health systems navigators and connectors, would play a role in bridging systems and removing barriers; not in leading or directing youth decisions. This framework belongs to the youth and communities it serves.</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="streams-section">
+    <div class="section-label">Program Architecture</div>
+    <h2 class="section-title">Six Program Streams — Choose Your Own Adventure</h2>
+    <p class="body-text" style="max-width:700px">Youth choose which streams they want to engage with, how deep they go, and what combination makes sense for them. No single pathway is required. Each stream connects to the others, and every entry point leads somewhere.</p>
+
+    <div class="streams-grid">
+      <div class="stream-card">
+        <div class="stream-letter">STREAM 1</div>
+        <div class="stream-title">Belonging &amp; Connection</div>
+        <div class="stream-desc">The entry point for everything else. Safe, welcoming spaces · peer relationships · school and community connection · low-barrier, food-first gathering · no intake forms, no waitlist.<sup class="ref" title="PHAC Blueprint for Action (2021). School and community connectedness are the strongest upstream protective factors. Simple things — safe, inclusive spaces and genuine adult interest in youth goals — reduce substance-related harm.">[1]</sup> This is the stream that makes all others possible.<br><br>
+        <em style="font-size:0.74rem;color:var(--teal)">Local examples: <a href="https://foundrybc.ca/comox-valley/" target="_blank" style="color:var(--teal);">Foundry Comox Valley</a> · <a href="https://foundrybc.ca/campbell-river/" target="_blank" style="color:var(--teal);">Foundry Campbell River</a> · <a href="https://www.wachiay.org" target="_blank" style="color:var(--teal);">Wachiay Friendship Centre</a></em></div>
+      </div>
+      <div class="stream-card">
+        <div class="stream-letter">STREAM 2</div>
+        <div class="stream-title">Identity &amp; Cultural Grounding</div>
+        <div class="stream-desc">Indigenous identity as protective factor · Elder-led teachings · land-based learning · Nation-specific protocols · canoe teachings · cedar weaving · breath and embodiment practices.<sup class="ref" title="TRC. (2015). Calls to Action #62, 64. FNHA With Open Arms affirms land and culture as core protective factors for Indigenous youth wellness.">[2,3]</sup><br><br>
+        <em style="font-size:0.74rem;color:var(--teal)">Local examples: <a href="https://www.nalagaconsulting.com/hase/" target="_blank" style="color:var(--teal);">N'alag̱a (Avis O'Brien) Hase' Breath of Life</a> — Kwakwaka'wakw land-based practices addressing overdose and harm reduction as an act of resistance · <a href="https://warriortoolkit.com/" target="_blank" style="color:var(--teal);">Nuu-chah-nulth Youth Warrior Family</a> — land-based Indigenous youth leadership, West Vancouver Island · <a href="https://www.comoxvalleyschools.ca" target="_blank" style="color:var(--teal);">Nala'atsi Aboriginal Education SD71</a> · Comox Lake Park Society Watershed Canoe Tour — 29' voyageur-style canoe, adaptive and inclusive equipment available</em></div>
+      </div>
+      <div class="stream-card">
+        <div class="stream-letter">STREAM 3</div>
+        <div class="stream-title">Meaningful Activity — Somewhere to Be</div>
+        <div class="stream-desc">Music · mural art · digital storytelling · film · podcasts · hip hop nights · land-based activity · sport · cooking · gaming. The specific activity matters less than showing up somewhere with other people.<sup class="ref" title="PHAC. (2022). YSUPP Framework. Arts-based, media, and activity approaches are effective engagement strategies for equity-deserving youth. Structured time with peers and trusted adults is a primary protective factor.">[1]</sup><br><br>
+        <em style="font-size:0.74rem;color:var(--teal)">Local examples: <a href="https://www.comoxvalleyartgallery.com/projects/youth-media-project/" target="_blank" style="color:var(--teal);">Comox Valley Art Gallery Youth Media Project</a> — digital storytelling and media arts · Unbroken Chain — youth hip hop nights, harm reduction, and mentoring · <a href="https://foundrybc.ca/comox-valley/" target="_blank" style="color:var(--teal);">Foundry Comox Valley</a> youth programming</em></div>
+      </div>
+      <div class="stream-card">
+        <div class="stream-letter">STREAM 4</div>
+        <div class="stream-title">Economic Dignity &amp; Future Self</div>
+        <div class="stream-desc">A changed relationship with the future is itself a protective factor.<sup class="ref" title="CCSA (2022). Future-oriented economic inclusion is an underweighted upstream factor in youth substance use prevention.">[9]</sup> Paid youth roles · credentials · employment pathways · skills that open doors.<br><br>
+        <em style="font-size:0.74rem;color:var(--teal)">Local examples: <a href="https://www.nic.bc.ca" target="_blank" style="color:var(--teal);">North Island College</a> — <a href="https://www.islandhealth.ca/sites/default/files/long-term-care/documents/hcap-employer-guidance.pdf" target="_blank" style="color:var(--teal);">HCAP Mental Health and Addictions Worker program</a> (paid while you train) · <a href="https://www.workbc.ca/workbc-employment-services-youth" target="_blank" style="color:var(--teal);">WorkBC Employment Services for Youth</a> · <a href="https://www.workbc.ca/discover-employment-services/indigenous-skills-and-employment-training" target="_blank" style="color:var(--teal);">ISET Indigenous Skills and Employment Training</a> · <a href="https://www.fnha.ca/Documents/FNHA-Not-Just-Naloxone.pdf" target="_blank" style="color:var(--teal);">Not Just Naloxone (FNHA)</a> train-the-trainer · First Aid certification</em></div>
+      </div>
+      <div class="stream-card">
+        <div class="stream-letter">STREAM 5</div>
+        <div class="stream-title">Harm Reduction as Literacy</div>
+        <div class="stream-desc">Not a separate service youth opt into — basic health literacy woven through all streams. Overdose recognition and response · naloxone · drug checking · knowing your rights · FNHA "With Open Arms" principles<sup class="ref" title="FNHA. (2020). With Open Arms. Harm reduction as ceremony: prioritizing safety, truth, and support over shame, fear, and stigma.">[3]</sup> · paid school presenter roles for youth.<sup class="ref" title="BCCSU. (2023). Youth peer-led harm reduction education is most effective for reaching young people.">[9]</sup><br><br>
+        <em style="font-size:0.74rem;color:var(--teal)">Local examples: <a href="https://www.streetdegree.ca" target="_blank" style="color:var(--teal);">VCH Street Degree in Overdose Prevention</a> — free online certification · <a href="http://www.towardtheheart.com/site-locator" target="_blank" style="color:var(--teal);">Toward the Heart</a> — naloxone training and take-home kits, BC-wide · <a href="https://www.avi.org" target="_blank" style="color:var(--teal);">AVI Health North Island</a> — CRCL harm reduction program · <a href="https://www.nalagaconsulting.com/hase/" target="_blank" style="color:var(--teal);">Hase' Breath of Life</a> — harm reduction as cultural resistance</em></div>
+      </div>
+      <div class="stream-card">
+        <div class="stream-letter">STREAM 6</div>
+        <div class="stream-title">Trusted Adults &amp; Mentorship</div>
+        <div class="stream-desc">The stream most upstream prevention frameworks are missing. Recruiting, training, and paying mentors and PWLLE facilitators to be consistently present across all other streams.<sup class="ref" title="CCSA/DFKC (2023). Youth identify trusted adults as their primary source of information. The Icelandic Prevention Model — now funded by PHAC across Canada — is built almost entirely on increasing the quantity and quality of time youth spend with trusted adults.">[9]</sup> Monthly Youth Table · advocacy training · potential youth-led research · youth are decision-makers, not consultees.<sup class="ref" title="SD71. (2025). Board Policy Handbook, Policy 19: Indigenous Recognition and Indigenous Voice commits SD71 to centering Indigenous perspectives and community engagement.">[11]</sup><br><br>
+        <em style="font-size:0.74rem;color:var(--teal)">Local examples: <a href="https://warriortoolkit.com/who-we-are/" target="_blank" style="color:var(--teal);">Nuu-chah-nulth Youth Warrior Family</a> — in-community mentors with renewed purpose · <a href="https://foundrybc.ca/comox-valley/" target="_blank" style="color:var(--teal);">Foundry Comox Valley (JHS)</a> youth worker relationships · Unbroken Chain mentoring · K'ómoks First Nation Youth Coordinator and Harm Reduction Coordinator · <a href="https://www.bccsu.ca/youth-health/" target="_blank" style="color:var(--teal);">BCCSU Youth Advisory Council model</a></em></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+  <section class="hero">
+    <div class="hero-label">Upstream Prevention · Relational Systems Change</div>
+    <h1 class="hero-title"><em>Upstream Youth Wellness Framework: Protective Futures</em></h1>
+    <p class="hero-subtitle">A peer-powered relational framework for youth thriving. Ages 14 to 24. North-Central Vancouver Island, BC.</p>
+    <div class="hero-chips">
+      <span class="chip">Primary Prevention</span>
+      <span class="chip">Harm Reduction as Ceremony</span>
+      <span class="chip">Land & Culture-Based</span>
+      <span class="chip">Equity-Deserving Youth Co-Design</span>
+      <span class="chip">Youth-Led by Design</span>
+      <span class="chip">Flexible by Design</span>
+    </div>
+  </section>
+
+  <div class="framework-grid">
+    <div class="framework-main">
+      <div class="section-label">The Framework</div>
+<!-- ══════════════════════════════════════════════════════
+     TAB 2: ECOSYSTEM MAP
+══════════════════════════════════════════════════════ -->
+<div class="tab-panel" id="tab-ecosystem">
+
+  <div class="map-header">
+    <div class="section-label" style="color:var(--sage)">Systems Perspective · Relational Mapping</div>
+    <h2 class="map-header-title">Comox Valley + Campbell River Youth Wellness Ecosystem</h2>
+    <p class="map-header-sub">A living map of the organizations, Nations, and individuals already doing work to support youth from some or all of the six streams. An upstream youth wellness framework could connect these existing efforts to reduce silos and have youth choose how they want to engage in learning from the six streams across organizations. <strong>Hover over nodes to explore. Drag to pan. Scroll to zoom.</strong></p>
+  </div>
+
+  <div class="map-canvas-wrapper">
+    <canvas id="ecosystemCanvas"></canvas>
+    <div id="ecosystemTooltip"></div>
+    <div class="map-controls">Hover · Pan · Zoom</div>
+  </div>
+
+  <div class="ecosystem-legend">
+    <div class="section-label">Legend</div>
+    <div class="legend-grid">
+      <div class="legend-item"><div class="legend-dot" style="background:#2C5F2D"></div> Indigenous Nations & Governance</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#2E7D82"></div> Health Systems</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#4A7C59"></div> Community Organizations</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#7A6022"></div> Schools & Education</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#5A3572"></div> Funding &amp; Philanthropy</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#B85042"></div> Youth Services & Harm Reduction</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#C9A84C"></div> Youth-Led Wellness</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#9B3A2A"></div> Research & Evidence</div>
+    </div>
+  </div>
+
+  <section class="players-section">
+    <div class="section-label">Collaborative Players</div>
+    <h2 class="section-title" style="color:var(--forest);font-family:'DM Serif Display',serif;font-size:1.6rem;margin-bottom:8px">Who's Already in the Space with Youth</h2>
+    <p class="body-text" style="max-width:680px">Many of these organizations are already in relationship. An upstream youth wellness framework is designed to weave existing efforts, not duplicate them.</p>
+    <p class="body-text" style="max-width:680px;font-size:0.8rem;color:var(--copper);background:rgba(184,80,66,0.07);border-left:3px solid var(--copper);padding:10px 14px;border-radius:4px;margin-bottom:0"><strong>Note:</strong> Upstream Indigenous youth wellness work is actively underway across multiple Nations and organizations in this region. What's named here reflects existing momentum — not a gap to be filled from outside.</p>
+
+    <div class="players-grid" style="margin-top:24px">
+      <div class="player-card nation">
+        <div class="player-type">Nation · Governance</div>
+        <div class="player-name"><a href="https://www.komoks.ca" target="_blank" style="color:var(--ink);text-decoration:underline;">K'ómoks First Nation</a></div>
+        <div class="player-role">Youth Coordinator · Harm Reduction Coordinator · Cultural programming · Governance authority for this territory</div>
+      </div>
+      <div class="player-card nation">
+        <div class="player-type">Nation · Governance</div>
+        <div class="player-name"><a href="https://www.wewaikai.com" target="_blank" style="color:var(--ink);text-decoration:underline;">We Wai Kai Nation</a></div>
+        <div class="player-role">Campbell River · Youth programming · Cultural continuity · Potential partner in development</div>
+      </div>
+      <div class="player-card nation">
+        <div class="player-type">Nation · Governance</div>
+        <div class="player-name"><a href="https://www.wewaykum.ca" target="_blank" style="color:var(--ink);text-decoration:underline;">Wei Wai Kum Nation</a></div>
+        <div class="player-role">Campbell River · Cultural knowledge-keeping · Youth wellness initiatives</div>
+      </div>
+      <div class="player-card health">
+        <div class="player-type">Health System</div>
+        <div class="player-name"><a href="https://www.islandhealth.ca" target="_blank" style="color:var(--ink);text-decoration:underline;">Island Health – North Island</a></div>
+        <div class="player-role">Regional Harm Reduction Coordination (Sheena Campbell) · Clinical services · Community health</div>
+      </div>
+      <div class="player-card health">
+        <div class="player-type">Health System · Indigenous</div>
+        <div class="player-name"><a href="https://www.fnha.ca" target="_blank" style="color:var(--ink);text-decoration:underline;">First Nations Health Authority</a></div>
+        <div class="player-role">Funding · Indigenous health programming · Cultural safety frameworks</div>
+      </div>
+      <div class="player-card health">
+        <div class="player-type">Harm Reduction · VCH</div>
+        <div class="player-name"><a href="https://www.streetdegree.ca" target="_blank" style="color:var(--ink);text-decoration:underline;">VCH Street Degree in Overdose Prevention</a></div>
+        <div class="player-role">Vancouver Coastal Health · Overdose Prevention certification program · Train-the-trainer model</div>
+      </div>
+      <div class="player-card community">
+        <div class="player-type">Community Organization</div>
+        <div class="player-name"><a href="https://www.wachiay.org" target="_blank" style="color:var(--ink);text-decoration:underline;">Wachiay Friendship Centre</a></div>
+        <div class="player-role">Indigenous community hub · Cultural connection · Comox Valley anchor organization</div>
+      </div>
+      <div class="player-card community">
+        <div class="player-type">Youth Hub · JHS / Foundry</div>
+        <div class="player-name"><a href="https://foundrybc.ca/comox-valley/" target="_blank" style="color:var(--ink);text-decoration:underline;">Foundry Comox Valley</a></div>
+        <div class="player-role">Run by John Howard Society Comox Valley · Integrated youth services hub · Ages 12–24</div>
+      </div>
+      <div class="player-card community">
+        <div class="player-type">Youth Hub</div>
+        <div class="player-name"><a href="https://foundrybc.ca/campbell-river/" target="_blank" style="color:var(--ink);text-decoration:underline;">Foundry Campbell River</a></div>
+        <div class="player-role">Integrated youth services · Mental health · Substance use · Social supports · Ages 12–24</div>
+      </div>
+      <div class="player-card health">
+        <div class="player-type">Harm Reduction</div>
+        <div class="player-name"><a href="https://www.avi.org" target="_blank" style="color:var(--ink);text-decoration:underline;">AVI Health &amp; Community Services</a></div>
+        <div class="player-role">Harm reduction services · CRCL program · North Island presence</div>
+      </div>
+      <div class="player-card school">
+        <div class="player-type">Education</div>
+        <div class="player-name"><a href="https://www.sd71.bc.ca" target="_blank" style="color:var(--ink);text-decoration:underline;">SD71</a> / <a href="https://www.sd72.bc.ca" target="_blank" style="color:var(--ink);text-decoration:underline;">SD72</a></div>
+        <div class="player-role">Comox Valley &amp; Campbell River school districts · Youth outreach · Prevention partnerships</div>
+      </div>
+      <div class="player-card school">
+        <div class="player-type">Post-Secondary</div>
+        <div class="player-name"><a href="https://www.nic.bc.ca" target="_blank" style="color:var(--ink);text-decoration:underline;">North Island College</a></div>
+        <div class="player-role">Micro-credential delivery · Employment pathways · Community partnerships</div>
+      </div>
+      <div class="player-card funding">
+        <div class="player-type">Research · PWLLE</div>
+        <div class="player-name"><a href="https://www.bccsu.ca" target="_blank" style="color:var(--ink);text-decoration:underline;">BCCSU</a></div>
+        <div class="player-role">BC Centre on Substance Use · PWLLE leadership · Youth research partnerships</div>
+      </div>
+      <div class="player-card nation">
+        <div class="player-type">Nation · Youth Programs</div>
+        <div class="player-name">K'ómoks First Nation — Youth Lead</div>
+        <div class="player-role">Youth Coordinator · Cultural programming and community connection for youth on K'ómoks territory</div>
+      </div>
+      <div class="player-card nation">
+        <div class="player-type">Nation · Harm Reduction</div>
+        <div class="player-name">K'ómoks First Nation — Harm Reduction Lead</div>
+        <div class="player-role">Harm Reduction Coordinator · Youth and community harm reduction support and outreach</div>
+      </div>
+      <div class="player-card school">
+        <div class="player-type">Education · Indigenous</div>
+        <div class="player-name">Nala'atsi Aboriginal Education (SD71)</div>
+        <div class="player-role">Indigenous education program · School-based cultural support · Land-based learning for Indigenous youth in the Comox Valley</div>
+      </div>
+      <div class="player-card community">
+        <div class="player-type">Youth Culture · Harm Reduction · Mentoring</div>
+        <div class="player-name">Unbroken Chain — Hip Hop Nights + Harm Reduction</div>
+        <div class="player-role">Youth hip hop nights, harm reduction programming, and mentoring · Indigenous youth outreach through culture and music</div>
+      </div>
+      <div class="player-card community">
+        <div class="player-type">Land-Based · Youth Leadership</div>
+        <div class="player-name">Warrior Group (Daryle Mills)</div>
+        <div class="player-role">Land-based leadership and cultural programming for youth · Potential co-delivery partner for Stream 2: Identity &amp; Culture</div>
+      </div>
+      <div class="player-card health">
+        <div class="player-type">Indigenous Healing · Nalaga Consulting</div>
+        <div class="player-name"><a href="https://www.nalagaconsulting.com/hase/" target="_blank" style="color:var(--ink);text-decoration:underline;">Hase' Breath of Life — N'alag̱a Consulting</a></div>
+        <div class="player-role">N'alag̱a (Avis O'Brien), Haida/Kwakwaka'wakw artist and Land-Based Cultural Empowerment Facilitator · 12-week curriculum using Kwakwaka'wakw land-based practices, breath and embodiment for self-regulation · addresses drug poisoning and harm reduction as an act of resistance · equips facilitators, Elders, and mental health professionals · Stream 2 and 5 partner</div>
+      </div>
+      <div class="player-card community">
+        <div class="player-type">Consulting · PWLLE</div>
+        <div class="player-name">Parker &amp; Assu Consulting</div>
+        <div class="player-role">Indigenous-led consulting for PWLLE · Rachel (We Wai Kai Nation) &amp; Kevin</div>
+      </div>
+      <div class="player-card community">
+        <div class="player-type">Arts · Youth Media</div>
+        <div class="player-name"><a href="https://www.comoxvalleyartgallery.com/projects/youth-media-project/" target="_blank" style="color:var(--ink);text-decoration:underline;">Comox Valley Art Gallery — Youth Media Project</a></div>
+        <div class="player-role">Youth-led media arts programming · Digital storytelling · Creative expression for youth in the Comox Valley · Stream 3 partner</div>
+      </div>
+      <div class="player-card nation">
+        <div class="player-type">Land-Based · Food Sovereignty · Cultural Revitalization</div>
+        <div class="player-name">Loxiwe — Clam Garden Revitalization Projects</div>
+        <div class="player-role">Ancient Indigenous mariculture practices revitalized across North Island territories · Food security and land stewardship · Intergenerational connection from youth to Elders · Cultural identity through relationship to land and sea · Stream 2 and Stream 1 partner —
+          <a href="https://crmuseum.ca/2025/05/29/clam-gardens-as-ancient-mariculture/" target="_blank" style="color:var(--teal);font-size:0.75rem;">CR Museum</a> ·
+          <a href="https://nanwakolas.com/news/happy-as-a-clam-at-well-any-tide/" target="_blank" style="color:var(--teal);font-size:0.75rem;">Nanwakolas Council</a> ·
+          <a href="https://hakaimagazine.com/news/clam-digging-through-3500-years-of-indigenous-history/" target="_blank" style="color:var(--teal);font-size:0.75rem;">Hakai Magazine</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     TAB 3: YOUTH CO-DESIGN WORKSHOP
+══════════════════════════════════════════════════════ -->
+<div class="tab-panel" id="tab-codesign">
+
+  <section class="codesign-hero">
+    <div class="section-label" style="color:rgba(132,181,159,0.75)">Participatory Design · Genuine Authority</div>
+    <h2 class="codesign-hero-title">Youth Co-Design Workshop</h2>
+    <p class="codesign-hero-sub">Youth have a voice to co-design and build sections they want from the 6-stream framework so that lived experience shapes what gets made. Then they share ideas about how each stream can be recognized: dual-credits for high school and college? Certificates for courses to add to their resume? Micro-credentials for streams to count towards post-secondary education? Cultural and land-based activities to count towards high-school completion credits? Listening sessions should have food, fun and be low-barrier to show up to.</p>
+  </section>
+
+  <div class="workshop-content">
+    <div class="principles-row">
+      <div class="principle-card">
+        <div class="principle-num">01</div>
+        <div class="principle-title">You Know Your Stuff</div>
+        <div class="principle-desc">Your lived experience is your expertise! Young people know their communities, their needs, and what has and hasn't worked way better than anyone parachuting in from outside.</div>
+      </div>
+      <div class="principle-card">
+        <div class="principle-num">02</div>
+        <div class="principle-title">You Get Paid</div>
+        <div class="principle-desc">Youth who contribute to design and decision-making are compensated at $25/hr. Your time and knowledge have value.</div>
+      </div>
+      <div class="principle-card">
+        <div class="principle-num">03</div>
+        <div class="principle-title">Culture Comes First</div>
+        <div class="principle-desc">Nothing moves forward without Indigenous cultural grounding and Elder or Knowledge Keeper guidance.</div>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-top:10px">Workshop Structure</div>
+    <h3 class="section-title">A Half-Day Session</h3>
+
+    <div class="workshop-phases">
+      <div class="phase">
+        <div class="phase-num">1</div>
+        <div class="phase-body">
+          <div class="phase-duration">45 MIN · ARRIVAL &amp; GROUNDING</div>
+          <div class="phase-title">Show Up, Eat, Get Comfortable</div>
+          <div class="phase-desc">Opening by an Elder or Knowledge Keeper from the host Nation. Land acknowledgment. Food, coffee, drinks. People arrive at their own pace. No launching into agenda until the room feels settled and people know each other a little.</div>
+          <div class="phase-activities">
+            <span class="activity-tag">Elder Welcome</span>
+            <span class="activity-tag">Real Food</span>
+            <span class="activity-tag">Chill Icebreaker</span>
+            <span class="activity-tag">Ground Rules Together</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-num">2</div>
+        <div class="phase-body">
+          <div class="phase-duration">60 MIN · LISTENING</div>
+          <div class="phase-title">What Actually Works + What Doesn't from Youth Perspective</div>
+          <div class="phase-desc">Small group conversations co-led with PWLLE facilitators — people who've been in similar spots. Prompts around youth wellness, what makes it hard to ask for help, what "feeling safe" actually means, and what programs have gotten badly wrong. What comes out of the room stays in the room. Youth own it.</div>
+          <div class="phase-activities">
+            <span class="activity-tag">Small Groups</span>
+            <span class="activity-tag">Visual Mapping</span>
+            <span class="activity-tag">Anonymous Input Option</span>
+            <span class="activity-tag">Co-led with PWLLE</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-num">3</div>
+        <div class="phase-body">
+          <div class="phase-duration">60 MIN · BUILDING</div>
+          <div class="phase-title">Design What You'd Actually Want to Show Up To</div>
+          <div class="phase-desc">Youth design activities, spaces, and support structures — not boxed in by what's currently fundable or what sounds good in a grant proposal. Drawing, mapping, role-playing, storytelling — whatever works. Everything gets taken seriously, written down, and actually fed back into how this thing gets built.</div>
+          <div class="phase-activities">
+            <span class="activity-tag">Prototype Activities</span>
+            <span class="activity-tag">Draw It Out</span>
+            <span class="activity-tag">Arts-Based Options</span>
+            <span class="activity-tag">Real Documentation</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-num">4</div>
+        <div class="phase-body">
+          <div class="phase-duration">30 MIN · CLOSING</div>
+          <div class="phase-title">What We Heard, What Happens Next, See You Around</div>
+          <div class="phase-desc">Make clear who's following up, when, and see if any youth want to help lead next steps. Honoraria go out before anyone leaves. Closed with cultural protocol if appropriate. Opportunity for youth to continue supports at John Howard/Foundry as needed.</div>
+          <div class="phase-activities">
+            <span class="activity-tag">Closing Protocol</span>
+            <span class="activity-tag">Honoraria on the Day</span>
+            <span class="activity-tag">Concrete Next Steps</span>
+            <span class="activity-tag">Follow-Up Timeline</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     TAB 4: THREE PATHS
+══════════════════════════════════════════════════════ -->
+<div class="tab-panel" id="tab-paths">
+
+  <section class="paths-hero">
+    <div class="section-label" style="color:rgba(245,160,128,0.65)">Stories of Impact · Composite Portraits</div>
+    <h1 class="paths-hero-title">Three Youth.<br>Three Paths.<br>One Framework.</h1>
+    <p class="paths-hero-sub">These are composite portraits drawn from patterns in the research, not from a program that exists yet. They show what an upstream youth wellness framework could look like when it's working, leading with connection.</p>
+  </section>
+
+  <div class="paths-grid">
+
+    <!-- JORDAN -->
+    <div class="path-card">
+      <div class="path-header">
+        <div class="path-pronoun">they / them</div>
+        <div class="path-name">Jordan</div>
+        <div class="path-age-location">17 · Comox Valley</div>
+        <div class="path-hook">"I didn't need someone to fix me. I needed somewhere I didn't have to explain myself."</div>
+      </div>
+      <div class="path-body">
+        <div class="path-section-label">Where They Started</div>
+        <div class="path-text">Jordan is a trans youth who had stopped going to most school programs — not because of disengagement, but because every space required them to justify their existence before anything else could happen. Home was complicated. The usual youth drop-ins felt like they'd been designed for someone else.</div>
+
+        <div class="path-section-label">What Connected</div>
+        <div class="path-text">Stream 3 (Meaningful Activity) opened the door — a music production workshop with no rules about who you had to be to walk in. Jordan started showing up. Then kept showing up. The PWLLE facilitator didn't make a big deal of it. Eventually, Jordan joined the Youth Advisory Circle.</div>
+
+        <div class="path-section-label">Program Streams</div>
+        <div class="path-streams">
+          <span class="stream-tag">3: Meaningful Activity</span>
+          <span class="stream-tag">6: Trusted Adults</span>
+          <span class="stream-tag">1: Belonging</span>
+        </div>
+
+        <div class="path-section-label">Shift</div>
+        <div class="path-text">Jordan now facilitates a peer support circle for other 2SLGBTQ+ youth — paid, confident, and designing the space they once needed. The system didn't fix Jordan. Jordan improved the system.</div>
+      </div>
+    </div>
+
+    <!-- MAYA -->
+    <div class="path-card">
+      <div class="path-header">
+        <div class="path-pronoun">she / her</div>
+        <div class="path-name">Maya</div>
+        <div class="path-age-location">19 · Campbell River · We Wai Kum Nation</div>
+        <div class="path-hook">"I knew the land. I just didn't know that knowing the land was something worth something."</div>
+      </div>
+      <div class="path-body">
+        <div class="path-section-label">Where She Started</div>
+        <div class="path-text">Maya, from We Wai Kum Nation, had been hearing her whole life that success meant leaving. Programs she'd encountered rarely saw her Nation's knowledge and language as assets — they were backdrop, not foundation. She wasn't in crisis. She was just unseen.</div>
+
+        <div class="path-section-label">What Connected</div>
+        <div class="path-text">Stream 2 (Identity and Cultural Grounding) was co-led by Elders from her Nation — not facilitated by an outside organization using cultural content as curriculum decoration. For the first time, Maya's knowledge was the knowledge being centered. She began a peer facilitation certification.</div>
+
+        <div class="path-section-label">Program Streams</div>
+        <div class="path-streams">
+          <span class="stream-tag">2: Identity &amp; Culture</span>
+          <span class="stream-tag">4: Economic Dignity</span>
+          <span class="stream-tag">5: Harm Reduction Literacy</span>
+        </div>
+
+        <div class="path-section-label">Shift</div>
+        <div class="path-text">Maya completed a peer facilitation certification and is now co-delivering harm reduction education in Campbell River schools — carrying knowledge from her Nation into rooms that have never heard it before. She didn't leave. She built something worth staying for.</div>
+      </div>
+    </div>
+
+    <!-- EZRA -->
+    <div class="path-card">
+      <div class="path-header">
+        <div class="path-pronoun">he / him</div>
+        <div class="path-name">Ezra</div>
+        <div class="path-age-location">21 · Comox Valley</div>
+        <div class="path-hook">"Every program I'd been in felt like it was waiting for me to fail so they could help me."</div>
+      </div>
+      <div class="path-body">
+        <div class="path-section-label">Where He Started</div>
+        <div class="path-text">Ezra had experience with substances, some involvement with the justice system, and a long history of being the kind of youth that systems are designed to manage rather than believe in. He'd aged out of most youth services. He was working part-time and staying afloat — but only just.</div>
+
+        <div class="path-section-label">What Connected</div>
+        <div class="path-text">A PWLLE outreach worker — someone who'd been in a similar place — connected Ezra to Stream F and the paid Youth Advisory role. No intake form asking him to rehearse his worst moments. Just: "We're building something. Are you in?" He was in.</div>
+
+        <div class="path-section-label">Program Streams</div>
+        <div class="path-streams">
+          <span class="stream-tag">4: Economic Dignity</span>
+          <span class="stream-tag">6: Trusted Adults</span>
+          <span class="stream-tag">5: Harm Reduction Literacy</span>
+        </div>
+
+        <div class="path-section-label">Shift</div>
+        <div class="path-text">Ezra now holds a peer support certification and is a Youth Governance Circle member. He trains other young people in overdose response. He didn't become a success story because someone saved him — he became one because he was given actual authority, actual pay, and actual trust.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="paths-framework-note">
+    <div class="framework-note-box">
+      <div class="framework-note-quote">
+        Jordan, Maya, and Ezra don't share a diagnosis.<br>
+        They share a need for <em>belonging, purpose, and community.</em>
+      </div>
+      <p class="framework-note-sub">An upstream youth wellness framework is the infrastructure that makes that possible — not one program, not one person, but a braided set of relationships, paid roles, cultural grounding, and genuine youth authority. When youth are connected to land, culture, and their own gifts, communities feel the difference.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     TAB 5: SYSTEMS ICEBERG
+══════════════════════════════════════════════════════ -->
+<div class="tab-panel" id="tab-iceberg">
+
+  <section class="hero" style="padding-bottom:40px;">
+    <div class="hero-label">Systems Thinking · Root Causes</div>
+    <h1 class="hero-title" style="font-size:clamp(1.6rem,3vw,2.4rem);">What's Driving the Toxic Drug Poisoning Crisis</h1>
+    <p class="hero-subtitle" style="margin-bottom:0;">The visible crisis — overdoses, emergency calls, youth disengagement — sits at the tip of a much larger iceberg. Most systems respond only to what they can see. This framework works below the waterline.</p>
+  </section>
+
+  <div style="padding: 0 40px 20px; background:white;">
+    <div style="position:relative; background:var(--parchment); border-radius:12px; overflow:visible; border:1px solid var(--border);">
+      <div id="ice-tip-v2" style="position:absolute;background:#1b3d1c;color:#fff;border-radius:8px;padding:12px 16px;font-size:12px;line-height:1.55;max-width:300px;pointer-events:none;opacity:0;transition:opacity .2s;z-index:10;font-family:'DM Sans',sans-serif;">
+        <strong style="color:var(--amber);display:block;margin-bottom:4px;font-size:10px;letter-spacing:1px;text-transform:uppercase;"></strong>
+        <span></span>
+      </div>
+      <svg width="100%" viewBox="0 0 860 680" style="display:block;">
+        <defs>
+          <linearGradient id="skyG2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#e8f4fb" stop-opacity="0.7"/>
+            <stop offset="100%" stop-color="#cce5f5" stop-opacity="0.4"/>
+          </linearGradient>
+          <linearGradient id="oceanG2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#5b9fc0" stop-opacity="0.55"/>
+            <stop offset="40%" stop-color="#2e6a8a" stop-opacity="0.65"/>
+            <stop offset="100%" stop-color="#0d3654" stop-opacity="0.80"/>
+          </linearGradient>
+          <linearGradient id="iceTipG2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#f0f8ff"/>
+            <stop offset="100%" stop-color="#c8e4f5"/>
+          </linearGradient>
+          <linearGradient id="iceL1G2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#9ecde8" stop-opacity="0.55"/>
+            <stop offset="100%" stop-color="#6db3d8" stop-opacity="0.5"/>
+          </linearGradient>
+          <linearGradient id="iceL2G2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#5a9fc0" stop-opacity="0.55"/>
+            <stop offset="100%" stop-color="#3a7fa8" stop-opacity="0.6"/>
+          </linearGradient>
+          <linearGradient id="iceL3G2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#2a6888" stop-opacity="0.65"/>
+            <stop offset="100%" stop-color="#0e3f60" stop-opacity="0.75"/>
+          </linearGradient>
+        </defs>
+
+        <rect x="0" y="0" width="860" height="210" fill="url(#skyG2)"/>
+        <rect x="0" y="210" width="860" height="470" fill="url(#oceanG2)"/>
+
+        <path d="M0 210 Q215 200 430 210 Q645 220 860 210" fill="none" stroke="#5b9fc0" stroke-width="2.5" stroke-opacity="0.8"/>
+        <path d="M0 216 Q215 206 430 216 Q645 226 860 216" fill="none" stroke="#fff" stroke-width="0.8" stroke-opacity="0.4"/>
+        <text font-family="DM Sans,sans-serif" font-size="11" fill="#fff" fill-opacity="0.6" x="776" y="207" font-style="italic">waterline</text>
+
+        <polygon points="430,28 560,130 540,210 320,210 300,130" fill="url(#iceTipG2)" stroke="#9fd4f0" stroke-width="1.5"/>
+        <path d="M430 35 L480 105" stroke="#fff" stroke-width="2" stroke-opacity="0.6" stroke-linecap="round"/>
+        <path d="M430 35 L390 118" stroke="#fff" stroke-width="1" stroke-opacity="0.35" stroke-linecap="round"/>
+
+        <g class="ice-layer-v2" data-title="Events — what we can see" data-body="These are the visible signals: overdoses, ED visits, school disengagement, housing instability, justice involvement. Most systems respond here with reactive services. Necessary — but responding to events without addressing the conditions producing them means the same events keep recurring. Island Health recorded the 2nd highest youth overdose rate in BC (BC Coroners Service, 2024)." style="cursor:pointer;">
+          <polygon points="430,28 560,130 540,210 320,210 300,130" fill="transparent"/>
+          <text font-family="DM Serif Display,serif" font-size="14" font-weight="600" fill="#1d4e7a" x="430" y="92" text-anchor="middle">EVENTS</text>
+          <text font-family="DM Sans,sans-serif" font-size="10" fill="#1d4e7a" fill-opacity="0.85" x="430" y="108" text-anchor="middle">what we see above the surface</text>
+          <text font-family="DM Sans,sans-serif" font-size="9.5" fill="#1d4e7a" fill-opacity="0.7" x="430" y="124" text-anchor="middle">overdoses · crises · school disengagement</text>
+          <text font-family="DM Sans,sans-serif" font-size="9" fill="#1d4e7a" fill-opacity="0.6" x="430" y="140" text-anchor="middle">justice involvement · housing instability</text>
+          <text font-family="DM Sans,sans-serif" font-size="9" fill="#B85042" fill-opacity="0.85" x="430" y="168" text-anchor="middle" font-style="italic">← most systems intervene here only</text>
+        </g>
+
+        <polygon points="300,210 540,210 580,320 280,320" fill="url(#iceL1G2)" stroke="#9ecde8" stroke-width="1" stroke-opacity="0.5"/>
+        <g class="ice-layer-v2" data-title="Patterns — trends over time" data-body="Patterns are events recurring across time and populations. Toxic drug deaths concentrated in youth aged 17–18. Indigenous youth disproportionately affected due to ongoing colonial impacts. Services consistently under-reaching youth ages 14–17. Crisis spikes following aging out of care. The McCreary BC AHS 2023 and Island Health CMHO 2024 report document these patterns regionally." style="cursor:pointer;">
+          <polygon points="300,210 540,210 580,320 280,320" fill="transparent"/>
+          <text font-family="DM Serif Display,serif" font-size="13" font-weight="600" fill="#e8f4fb" x="430" y="242" text-anchor="middle">PATTERNS</text>
+          <text font-family="DM Sans,sans-serif" font-size="10" fill="#e8f4fb" fill-opacity="0.85" x="430" y="258" text-anchor="middle">recurring trends over time</text>
+          <text font-family="DM Sans,sans-serif" font-size="9.5" fill="#e8f4fb" fill-opacity="0.75" x="430" y="274" text-anchor="middle">youth 17–18 most affected · gap in services 14–17</text>
+          <text font-family="DM Sans,sans-serif" font-size="9.5" fill="#e8f4fb" fill-opacity="0.75" x="430" y="290" text-anchor="middle">crisis spike after aging out of care</text>
+          <text font-family="DM Sans,sans-serif" font-size="9" fill="#c8e8f8" fill-opacity="0.7" x="430" y="308" text-anchor="middle" font-style="italic">hover to explore</text>
+        </g>
+
+        <polygon points="280,320 580,320 640,450 220,450" fill="url(#iceL2G2)" stroke="#6db3d8" stroke-width="1" stroke-opacity="0.45"/>
+        <g class="ice-layer-v2" data-title="Structures — the rules of the game" data-body="Structures include funding rules, governance arrangements, policies, and relationship architecture. The current pattern of disconnection is structurally produced: siloed funding rewards program delivery over system connection; cultural programming goes unrecognized in school credits; no paid youth leadership roles exist; upstream coordination is fragmented across multiple organizations. This framework targets this layer." style="cursor:pointer;">
+          <polygon points="280,320 580,320 640,450 220,450" fill="transparent"/>
+          <text font-family="DM Serif Display,serif" font-size="13" font-weight="600" fill="#e8f4fb" x="430" y="355" text-anchor="middle">STRUCTURES</text>
+          <text font-family="DM Sans,sans-serif" font-size="10" fill="#e8f4fb" fill-opacity="0.85" x="430" y="371" text-anchor="middle">rules, policies, relationships, incentives</text>
+          <text font-family="DM Sans,sans-serif" font-size="9.5" fill="#e8f4fb" fill-opacity="0.75" x="430" y="389" text-anchor="middle">siloed funding · fragmented coordination</text>
+          <text font-family="DM Sans,sans-serif" font-size="9.5" fill="#e8f4fb" fill-opacity="0.75" x="430" y="405" text-anchor="middle">cultural programs unrecognized in school credits</text>
+          <text font-family="DM Sans,sans-serif" font-size="9.5" fill="#e8f4fb" fill-opacity="0.75" x="430" y="421" text-anchor="middle">no paid youth leadership roles exist</text>
+          <circle cx="430" cy="437" r="6" fill="#C9A84C" fill-opacity="0.85"/>
+          <text font-family="DM Sans,sans-serif" font-size="9" fill="#C9A84C" x="445" y="441" font-weight="600">★ upstream framework intervenes here</text>
+        </g>
+
+        <polygon points="220,450 640,450 700,620 160,620" fill="url(#iceL3G2)" stroke="#3a7fa8" stroke-width="1" stroke-opacity="0.5"/>
+        <path d="M160 620 Q430 635 700 620" fill="none" stroke="#3a7fa8" stroke-width="1" stroke-opacity="0.4"/>
+        <g class="ice-layer-v2" data-title="Mental Models — beliefs that sustain the system" data-body="Mental models are the shared assumptions that produced the structures above. 'Substance use is a personal or moral failure' leads to punitive responses. 'Culture is separate from health' means culture never receives health funding. 'Youth need programs done to them' means no paid youth roles exist. The deepest work of this framework — reframing harm reduction as ceremony, behaviour as communication of unmet need, culture as the intervention — happens here. Slowest to shift, most durable when shifted." style="cursor:pointer;">
+          <polygon points="220,450 640,450 700,620 160,620" fill="transparent"/>
+          <text font-family="DM Serif Display,serif" font-size="13" font-weight="600" fill="#e8f4fb" x="430" y="485" text-anchor="middle">MENTAL MODELS</text>
+          <text font-family="DM Sans,sans-serif" font-size="10" fill="#e8f4fb" fill-opacity="0.85" x="430" y="501" text-anchor="middle">beliefs, assumptions, and worldviews</text>
+          <text font-family="DM Sans,sans-serif" font-size="9.5" fill="#e8f4fb" fill-opacity="0.75" x="430" y="520" text-anchor="middle">"substance use is a personal or moral failure"</text>
+          <text font-family="DM Sans,sans-serif" font-size="9.5" fill="#e8f4fb" fill-opacity="0.75" x="430" y="537" text-anchor="middle">"youth need programs done to them, not built with them"</text>
+          <text font-family="DM Sans,sans-serif" font-size="9.5" fill="#e8f4fb" fill-opacity="0.75" x="430" y="554" text-anchor="middle">"culture is separate from health"</text>
+          <text font-family="DM Sans,sans-serif" font-size="9.5" fill="#e8f4fb" fill-opacity="0.75" x="430" y="571" text-anchor="middle">"prevention is less urgent than treatment"</text>
+          <circle cx="430" cy="590" r="6" fill="#C9A84C" fill-opacity="0.9"/>
+          <text font-family="DM Sans,sans-serif" font-size="9" fill="#C9A84C" x="445" y="594" font-weight="600">★★ deepest leverage — reframing these beliefs</text>
+          <text font-family="DM Sans,sans-serif" font-size="9" fill="#84B59F" x="430" y="614" text-anchor="middle" font-style="italic">slowest to shift — most durable when shifted</text>
+        </g>
+
+        <text font-family="DM Sans,sans-serif" font-size="10" fill="#1d4e7a" fill-opacity="0.65" x="610" y="110" font-style="italic">above waterline</text>
+        <text font-family="DM Sans,sans-serif" font-size="10" fill="#e8f4fb" fill-opacity="0.55" x="616" y="290" font-style="italic">below surface</text>
+        <text font-family="DM Sans,sans-serif" font-size="11" font-weight="700" fill="#1d4e7a" fill-opacity="0.85" x="40" y="52">← Hover each layer</text>
+        <text font-family="DM Sans,sans-serif" font-size="11" font-weight="700" fill="#1d4e7a" fill-opacity="0.85" x="40" y="67">to explore</text>
+      </svg>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;padding:24px 40px 50px;background:white;">
+    <div class="card" style="padding:18px 20px;border-left:3px solid var(--copper);">
+      <div class="section-label" style="color:var(--copper);">Where most systems respond</div>
+      <p class="body-text">At the Events layer — emergency care, crisis lines, detox services. Vital and necessary. But responding to events alone, without addressing patterns and structures, means the same events keep recurring.</p>
+    </div>
+    <div class="card" style="padding:18px 20px;border-left:3px solid var(--teal);">
+      <div class="section-label" style="color:var(--teal);">Where this framework works</div>
+      <p class="body-text">At the Structures and Mental Models layers — connecting fragmented coordination, advocating for school credit recognition of cultural programming, and reframing whose knowledge counts as evidence. Slower, but it changes the conditions that produce the events.</p>
+    </div>
+    <div class="card" style="padding:18px 20px;border-left:3px solid var(--amber);">
+      <div class="section-label" style="color:var(--muted);">The deepest work</div>
+      <p class="body-text">Mental models shift slowest and last longest. When "culture is the intervention" becomes a shared belief held by one school board, one funder, one Nation — the shape of the whole system changes downstream.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     TAB 6: REFERENCES & POTENTIAL FUNDING
+══════════════════════════════════════════════════════ -->
+<div class="tab-panel" id="tab-references">
+
+  <section class="hero" style="padding-bottom:40px;">
+    <div class="hero-label">Evidence Base · Funding Landscape</div>
+    <h1 class="hero-title" style="font-size:clamp(1.6rem,3vw,2.4rem);">References &amp; Potential Funding</h1>
+    <p class="hero-subtitle" style="margin-bottom:0;">The research grounding this framework, and the funding streams that align with upstream, culturally-grounded youth wellness work in BC.</p>
+  </section>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;background:white;">
+
+    <!-- REFERENCES -->
+    <div style="padding:40px 50px;border-right:1px solid var(--border);">
+      <div class="section-label">Evidence Base</div>
+      <h2 class="section-title">Key References</h2>
+
+      <div style="display:flex;flex-direction:column;gap:14px;margin-top:20px;">
+
+        <div style="padding:14px 16px;background:var(--parchment);border-radius:8px;border-left:3px solid var(--forest);">
+          <div style="font-size:0.7rem;font-family:'Space Mono',monospace;color:var(--forest);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Indigenous Health Frameworks</div>
+          <p style="font-size:0.8rem;color:var(--muted);line-height:1.6;">First Nations Health Authority. (2020). <em><a href="https://www.fnha.ca/Documents/FNHA-With-Open-Arms-Report.pdf" target="_blank" style="color:var(--teal);">With Open Arms: An Enhanced Framework Embracing a Harm Reduction Approach to Substance Use.</a></em> FNHA.</p>
+        </div>
+
+        <div style="padding:14px 16px;background:var(--parchment);border-radius:8px;border-left:3px solid var(--forest);">
+          <div style="font-size:0.7rem;font-family:'Space Mono',monospace;color:var(--forest);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Indigenous Health Frameworks</div>
+          <p style="font-size:0.8rem;color:var(--muted);line-height:1.6;">First Nations Health Authority. (2022). <em><a href="https://www.fnha.ca/Documents/FNHA-Not-Just-Naloxone.pdf" target="_blank" style="color:var(--teal);">Not Just Naloxone: Expanding the Overdose Response Toolkit.</a></em> FNHA.</p>
+        </div>
+
+        <div style="padding:14px 16px;background:var(--parchment);border-radius:8px;border-left:3px solid var(--teal);">
+          <div style="font-size:0.7rem;font-family:'Space Mono',monospace;color:var(--teal);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Youth Health Data</div>
+          <p style="font-size:0.8rem;color:var(--muted);line-height:1.6;">McCreary Centre Society. (2023). <em><a href="https://www.mcs.bc.ca/bc_adolescent_health_survey" target="_blank" style="color:var(--teal);">BC Adolescent Health Survey.</a></em> McCreary Centre Society.</p>
+        </div>
+
+        <div style="padding:14px 16px;background:var(--parchment);border-radius:8px;border-left:3px solid var(--teal);">
+          <div style="font-size:0.7rem;font-family:'Space Mono',monospace;color:var(--teal);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Youth Health Data</div>
+          <p style="font-size:0.8rem;color:var(--muted);line-height:1.6;">Island Health. (2024). <em>Child and Youth Mental Health and Substance Use (CYMHSU) Regional Report.</em> Island Health.</p>
+        </div>
+
+        <div style="padding:14px 16px;background:var(--parchment);border-radius:8px;border-left:3px solid var(--teal);">
+          <div style="font-size:0.7rem;font-family:'Space Mono',monospace;color:var(--teal);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Youth Health Data</div>
+          <p style="font-size:0.8rem;color:var(--muted);line-height:1.6;">BC Coroners Service. (2024). <em><a href="https://www2.gov.bc.ca/gov/content/life-events/death/coroners-service/statistical-reports" target="_blank" style="color:var(--teal);">Illicit Drug Toxicity Deaths in BC: January 2014 to December 2023.</a></em> Province of BC.</p>
+        </div>
+
+        <div style="padding:14px 16px;background:var(--parchment);border-radius:8px;border-left:3px solid var(--moss);">
+          <div style="font-size:0.7rem;font-family:'Space Mono',monospace;color:var(--moss);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Harm Reduction &amp; Prevention</div>
+          <p style="font-size:0.8rem;color:var(--muted);line-height:1.6;">BC Centre on Substance Use. (2023). <em><a href="https://www.bccsu.ca/education-training/" target="_blank" style="color:var(--teal);">Addiction Care and Treatment Online Certificate (ACTOC).</a></em> BCCSU. Free, self-paced, CME-accredited online certificate course providing comprehensive substance use education for health care professionals.</p>
+        </div>
+
+        <div style="padding:14px 16px;background:var(--parchment);border-radius:8px;border-left:3px solid var(--moss);">
+          <div style="font-size:0.7rem;font-family:'Space Mono',monospace;color:var(--moss);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Harm Reduction &amp; Prevention</div>
+          <p style="font-size:0.8rem;color:var(--muted);line-height:1.6;">BC Centre on Substance Use. (2026). <em><a href="https://www.bccsu.ca/treatment-and-recovery-course/" target="_blank" style="color:var(--teal);">Foundational Skills for the Substance Use, Treatment, and Recovery Workforce Course.</a></em> BCCSU. Free online course for anyone working in or entering substance use treatment and recovery roles — including peer workers, support workers, and community health staff.</p>
+        </div>
+
+        <div style="padding:14px 16px;background:var(--parchment);border-radius:8px;border-left:3px solid var(--moss);">
+          <div style="font-size:0.7rem;font-family:'Space Mono',monospace;color:var(--moss);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Harm Reduction &amp; Prevention</div>
+          <p style="font-size:0.8rem;color:var(--muted);line-height:1.6;">Public Health Agency of Canada. (2022). <em><a href="https://www.canada.ca/en/public-health/services/substance-use/youth-substance-use-prevention-program.html" target="_blank" style="color:var(--teal);">Youth Substance Use Prevention Program (YSUPP) Framework.</a></em> Government of Canada.</p>
+        </div>
+
+        <div style="padding:14px 16px;background:var(--parchment);border-radius:8px;border-left:3px solid var(--moss);">
+          <div style="font-size:0.7rem;font-family:'Space Mono',monospace;color:var(--moss);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Harm Reduction · Online Training</div>
+          <p style="font-size:0.8rem;color:var(--muted);line-height:1.6;">Vancouver Coastal Health. <em><a href="https://www.streetdegree.ca" target="_blank" style="color:var(--teal);">Street Degree in Overdose Prevention — Online Training.</a></em> VCH / BCCDC. Free certification in overdose recognition, naloxone use, and harm reduction principles.</p>
+        </div>
+
+        <div style="padding:14px 16px;background:var(--parchment);border-radius:8px;border-left:3px solid var(--moss);">
+          <div style="font-size:0.7rem;font-family:'Space Mono',monospace;color:var(--moss);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Harm Reduction · Peer Training</div>
+          <p style="font-size:0.8rem;color:var(--muted);line-height:1.6;">BC Centre for Disease Control. <em><a href="http://www.bccdc.ca/health-professionals/professional-resources/harm-reduction" target="_blank" style="color:var(--teal);">BCCDC Harm Reduction Resources and Peer Training.</a></em> Includes peer naloxone training, drug checking resources, and overdose prevention guidance for community organizations.</p>
+        </div>
+
+        <div style="padding:14px 16px;background:var(--parchment);border-radius:8px;border-left:3px solid var(--plum);">
+          <div style="font-size:0.7rem;font-family:'Space Mono',monospace;color:var(--plum);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Systems &amp; Social Innovation</div>
+          <p style="font-size:0.8rem;color:var(--muted);line-height:1.6;">Truth and Reconciliation Commission of Canada. (2015). <em><a href="https://www2.gov.bc.ca/assets/gov/politics-and-government/federal-provincial-intergovernmental-affairs/indigenous-affairs/crown-indigenous-relations/reconciliation/trc_calls_to_action.pdf" target="_blank" style="color:var(--teal);">Calls to Action.</a></em> TRC Canada. (Calls #19, 22, 23 are directly relevant.)</p>
+        </div>
+
+        <div style="padding:14px 16px;background:var(--parchment);border-radius:8px;border-left:3px solid var(--plum);">
+          <div style="font-size:0.7rem;font-family:'Space Mono',monospace;color:var(--plum);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Systems &amp; Social Innovation</div>
+          <p style="font-size:0.8rem;color:var(--muted);line-height:1.6;">Kania, J., &amp; Kramer, M. (2011). Collective impact. <em><a href="https://ssir.org/articles/entry/collective_impact" target="_blank" style="color:var(--teal);">Stanford Social Innovation Review, 9</a></em>(1), 36–41.</p>
+        </div>
+
+        <div style="padding:14px 16px;background:var(--parchment);border-radius:8px;border-left:3px solid var(--teal);">
+          <div style="font-size:0.7rem;font-family:'Space Mono',monospace;color:var(--teal);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">BC Health System Context · [12]</div>
+          <p style="font-size:0.8rem;color:var(--muted);line-height:1.6;">BC Ministry of Health. <em><a href="https://www2.gov.bc.ca/gov/content/health/accessing-health-care/bcs-primary-care-system" target="_blank" style="color:var(--teal);">BC's Primary Care System: Team-Based Care and Primary Care Networks.</a></em> Province of BC. Foundry Centres are listed as primary care providers for youth ages 12–24, connecting upstream wellness frameworks to the broader health system. PCNs include FNHA and Indigenous community partners.</p>
+        </div>
+
+        <div style="padding:14px 16px;background:var(--parchment);border-radius:8px;border-left:3px solid var(--amber);">
+          <div style="font-size:0.7rem;font-family:'Space Mono',monospace;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Local Education Policy · [11]</div>
+          <p style="font-size:0.8rem;color:var(--muted);line-height:1.6;">School District No. 71 (Comox Valley). (2025). <em><a href="https://www.comoxvalleyschools.ca/wp-content/uploads/2025/06/Board-Policy-Handbook-Updated-Jun-2025.pdf" target="_blank" style="color:var(--teal);">Board Policy Handbook (Updated June 2025).</a></em> Policy 19 — Indigenous Recognition and Indigenous Voice commits SD71 to centering Indigenous perspectives and community engagement. Policy 17 affirms Sexual Orientation and Gender Identity supports. Policy 24 addresses Equity and Non-Discrimination. Together these policies create the school-based foundation for culturally safe, equity-informed youth wellness programming.</p>
+        </div>
+
+        <div style="padding:14px 16px;background:var(--parchment);border-radius:8px;border-left:3px solid var(--amber);">
+          <div style="font-size:0.7rem;font-family:'Space Mono',monospace;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Local Education · Indigenous Program · [13]</div>
+          <p style="font-size:0.8rem;color:var(--muted);line-height:1.6;">MacRae, J., &amp; Carlos, B. (2019). <em><a href="https://www.comoxvalleyschools.ca/wp-content/uploads/2020/12/Indigenous-Education-Program-Review.pdf" target="_blank" style="color:var(--teal);">Indigenous Education Program Review.</a></em> School District No. 71 (Comox Valley). Review found Indigenous students reported high satisfaction with cultural programming and land-based activities. Identified a need to expand cultural awareness to all students and recommends an evolution toward more innovative, community-engaged approaches aligned with TRC Calls to Action. Directly supports the case for integrating Stream 2 land and culture programming with SD71 schools.</p>
+        </div>
+
+        <div style="padding:14px 16px;background:var(--parchment);border-radius:8px;border-left:3px solid var(--forest);">
+          <div style="font-size:0.7rem;font-family:'Space Mono',monospace;color:var(--forest);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Indigenous Healing · Cultural Empowerment · [14]</div>
+          <p style="font-size:0.8rem;color:var(--muted);line-height:1.6;">N'alag̱a (Avis O'Brien). (2021–present). <em><a href="https://www.nalagaconsulting.com/hase/" target="_blank" style="color:var(--teal);">Hase' Breath of Life.</a></em> N'alag̱a Consulting. Haida and Kwakwaka'wakw land-based cultural empowerment facilitator. 12-week curriculum using Kwakwaka'wakw ancestral knowledge, breath, and embodiment practices as self-regulation tools. Addresses drug poisoning, harm reduction as resistance to the opioid epidemic, and overdose loss. Developed for facilitators, Elders, and mental health professionals. Also includes cedar weaving, drumming, singing, and ceremony as decolonization and healing practices. Workshop series also includes suicide prevention and relapse prevention through an Indigenous lens. Directly aligns with Streams 2 and 5 of this framework.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- FUNDING -->
+    <div style="padding:40px 50px;">
+      <div class="section-label">Funding Landscape</div>
+      <h2 class="section-title">Potential Funding Streams</h2>
+      <p class="body-text" style="margin-bottom:24px;">These are funding streams that align with upstream, culturally-grounded youth wellness work. None of these relationships are established — this is a starting map for exploration.</p>
+
+      <div style="display:flex;flex-direction:column;gap:12px;">
+
+        <div style="padding:16px 18px;background:var(--parchment);border-radius:8px;border-top:3px solid var(--forest);">
+          <div style="font-size:0.7rem;font-family:'Space Mono',monospace;color:var(--forest);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Indigenous Health</div>
+          <div style="font-family:'DM Serif Display',serif;font-size:0.95rem;color:var(--ink);margin-bottom:4px;"><a href="https://www.fnha.ca/what-we-do/mental-wellness-and-substance-use" target="_blank" style="color:var(--ink);text-decoration:underline;">First Nations Health Authority</a></div>
+          <p style="font-size:0.78rem;color:var(--muted);line-height:1.5;">Mental Wellness and Substance Use · Upstream Approaches to Health (UAH) · Harm Reduction funding streams</p>
+        </div>
+
+        <div style="padding:16px 18px;background:var(--parchment);border-radius:8px;border-top:3px solid var(--teal);">
+          <div style="font-size:0.7rem;font-family:'Space Mono',monospace;color:var(--teal);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Federal</div>
+          <div style="font-family:'DM Serif Display',serif;font-size:0.95rem;color:var(--ink);margin-bottom:4px;"><a href="https://www.canada.ca/en/public-health/services/substance-use/youth-substance-use-prevention-program.html" target="_blank" style="color:var(--ink);text-decoration:underline;">Public Health Agency of Canada</a></div>
+          <p style="font-size:0.78rem;color:var(--muted);line-height:1.5;">Youth Substance Use Prevention Program (YSUPP) · Youth Mental Health Fund</p>
+        </div>
+
+        <div style="padding:16px 18px;background:var(--parchment);border-radius:8px;border-top:3px solid var(--teal);">
+          <div style="font-size:0.7rem;font-family:'Space Mono',monospace;color:var(--teal);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Federal</div>
+          <div style="font-family:'DM Serif Display',serif;font-size:0.95rem;color:var(--ink);margin-bottom:4px;"><a href="https://www.canada.ca/en/health-canada/services/substance-use/substance-use-addictions-program.html" target="_blank" style="color:var(--ink);text-decoration:underline;">Health Canada — SUAP</a></div>
+          <p style="font-size:0.78rem;color:var(--muted);line-height:1.5;">Substance Use and Addictions Program · Harm reduction and prevention focus · TRC alignment required</p>
+        </div>
+
+        <div style="padding:16px 18px;background:var(--parchment);border-radius:8px;border-top:3px solid var(--teal);">
+          <div style="font-size:0.7rem;font-family:'Space Mono',monospace;color:var(--teal);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Federal</div>
+          <div style="font-family:'DM Serif Display',serif;font-size:0.95rem;color:var(--ink);margin-bottom:4px;"><a href="https://www.sac-isc.gc.ca/eng/1100100032661/1533304683142" target="_blank" style="color:var(--ink);text-decoration:underline;">Indigenous Services Canada</a></div>
+          <p style="font-size:0.78rem;color:var(--muted);line-height:1.5;">Youth and community wellness streams · Nation-directed programming</p>
+        </div>
+
+        <div style="padding:16px 18px;background:var(--parchment);border-radius:8px;border-top:3px solid var(--moss);">
+          <div style="font-size:0.7rem;font-family:'Space Mono',monospace;color:var(--moss);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Provincial</div>
+          <div style="font-family:'DM Serif Display',serif;font-size:0.95rem;color:var(--ink);margin-bottom:4px;"><a href="https://www2.gov.bc.ca/gov/content/health/managing-your-health/mental-health-substance-use" target="_blank" style="color:var(--ink);text-decoration:underline;">BC Ministry of Mental Health &amp; Addictions</a></div>
+          <p style="font-size:0.78rem;color:var(--muted);line-height:1.5;">Youth prevention and early intervention · Community-based model grants</p>
+        </div>
+
+        <div style="padding:16px 18px;background:var(--parchment);border-radius:8px;border-top:3px solid var(--moss);">
+          <div style="font-size:0.7rem;font-family:'Space Mono',monospace;color:var(--moss);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Provincial</div>
+          <div style="font-family:'DM Serif Display',serif;font-size:0.95rem;color:var(--ink);margin-bottom:4px;"><a href="https://bchealthycommunities.ca" target="_blank" style="color:var(--ink);text-decoration:underline;">BC Healthy Communities</a></div>
+          <p style="font-size:0.78rem;color:var(--muted);line-height:1.5;">Age-Friendly Communities · Community wellness grants</p>
+        </div>
+
+        <div style="padding:16px 18px;background:var(--parchment);border-radius:8px;border-top:3px solid var(--amber);">
+          <div style="font-size:0.7rem;font-family:'Space Mono',monospace;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Philanthropy</div>
+          <div style="font-family:'DM Serif Display',serif;font-size:0.95rem;color:var(--ink);margin-bottom:4px;"><a href="https://www.vancouverfoundation.ca" target="_blank" style="color:var(--ink);text-decoration:underline;">Vancouver Foundation</a> · <a href="https://www.mcconnellfoundation.ca" target="_blank" style="color:var(--ink);text-decoration:underline;">McConnell Foundation</a></div>
+          <p style="font-size:0.78rem;color:var(--muted);line-height:1.5;">Community wellbeing · Social innovation · Indigenous community development</p>
+        </div>
+
+        <div style="padding:16px 18px;background:var(--parchment);border-radius:8px;border-top:3px solid var(--amber);">
+          <div style="font-size:0.7rem;font-family:'Space Mono',monospace;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Philanthropy</div>
+          <div style="font-family:'DM Serif Display',serif;font-size:0.95rem;color:var(--ink);margin-bottom:4px;"><a href="https://www.spencercreo.com" target="_blank" style="color:var(--ink);text-decoration:underline;">SpencerCreo Foundation</a></div>
+          <p style="font-size:0.78rem;color:var(--muted);line-height:1.5;">Social innovation funding · Tara Taylor, Executive Director</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</div>
+<footer class="site-footer">
+  <div class="footer-land-ack"><em>This work is grounded on the unceded territories of the K'ómoks First Nation, the We Wai Kai Nation, and the Wei Wai Kum Nation. We are grateful to be working toward relationship with these communities.</em></div>
+  <div class="footer-version">Upstream Youth Wellness Framework<br>Social Innovation Toolkit<br>North-Central Vancouver Island · 2026</div>
+</footer>
+
+
+<!-- ══════════════════════════════════════════════════════
+     JS: TABS
+══════════════════════════════════════════════════════ -->
+<script>
+const tabs = document.querySelectorAll('.tab-btn');
+const panels = document.querySelectorAll('.tab-panel');
+
+tabs.forEach(btn => {
+  btn.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    panels.forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    if (btn.dataset.tab === 'ecosystem') initEcosystem();
+  });
+});
+</script>
+
+<!-- ══════════════════════════════════════════════════════
+     JS: ECOSYSTEM MAP CANVAS
+══════════════════════════════════════════════════════ -->
+<script>
+let ecosystemInitialized = false;
+
+function initEcosystem() {
+  if (ecosystemInitialized) return;
+  ecosystemInitialized = true;
+
+  const canvas = document.getElementById('ecosystemCanvas');
+  const tooltip = document.getElementById('ecosystemTooltip');
+  const wrapper = canvas.parentElement;
+  const ctx = canvas.getContext('2d');
+
+  let W = canvas.width  = wrapper.clientWidth;
+  let H = canvas.height = wrapper.clientHeight;
+  let panX = 0, panY = 0, zoom = 1;
+  let dragging = false, lastMouse = null, hoveredNode = null;
+
+  const NODES = [
+    // CENTER
+    { id:'pf', x:0, y:0, r:62, color:'#2C5F2D', textColor:'#C9A84C',
+      label:'Youth-Led\nWellness', detail:'Upstream Youth Wellness Framework · Ages 14 to 24 · North-Central Vancouver Island · Flexible by design, following youth and Nation direction, not imposing external program models.' },
+
+    // NATIONS
+    { id:'komoks', x:-320, y:-200, r:46, color:'#1E4D30', textColor:'#84B59F',
+      label:"K'ómoks\nFirst Nation", detail:"K'ómoks First Nation — host Nation of the Comox Valley. Youth Coordinator and Harm Reduction Coordinator. Cultural programming and community connection for youth in this territory." },
+    { id:'wewaikal', x:-340, y:60, r:40, color:'#2C5F2D', textColor:'#C9A84C',
+      label:'We Wai Kai\nNation', detail:'We Wai Kai Nation — Campbell River. Cultural continuity, youth wellness programming, community connection.' },
+    { id:'wewaykum', x:-320, y:260, r:38, color:'#2C5F2D', textColor:'#C9A84C',
+      label:'Wei Wai Kum\nNation', detail:'Wei Wai Kum Nation — Campbell River. Cultural knowledge-keeping, youth wellness initiatives, community connection.' },
+
+    // HEALTH
+    { id:'islandhealth', x:0, y:-320, r:42, color:'#2E7D82', textColor:'#E8DCC8',
+      label:'Island Health\nNorth Island', detail:'Island Health — North Island region. Regional Harm Reduction Coordination (Sheena Campbell). Clinical and community health services.' },
+    { id:'fnha', x:200, y:-280, r:38, color:'#1E5A60', textColor:'#84B59F',
+      label:'FNHA', detail:'First Nations Health Authority — funding partner, cultural safety frameworks, Indigenous health programming across BC.' },
+    { id:'streetdegree', x:260, y:-80, r:34, color:'#2E7D82', textColor:'#E8DCC8',
+      label:'VCH Street Degree\nOverdose Prev.', detail:'Vancouver Coastal Health (VCH) Street Degree in Overdose Prevention — certification training, train-the-trainer model for community harm reduction delivery.' },
+
+    // COMMUNITY
+    { id:'wachiay', x:-180, y:-360, r:36, color:'#4A7C59', textColor:'#E8DCC8',
+      label:'Wachiay\nFriendship Ctr', detail:'Wachiay Friendship Centre — Comox Valley Indigenous community hub. Cultural connection, navigation, and community anchor.' },
+    { id:'foundrycv', x:0, y:320, r:38, color:'#4A7C59', textColor:'#C9A84C',
+      label:'Foundry\nComox Valley', detail:'Foundry Comox Valley — run by John Howard Society Comox Valley. Integrated youth services hub, ages 12–24. Mental health, substance use, social services.' },
+    { id:'foundrycr', x:200, y:280, r:36, color:'#4A7C59', textColor:'#E8DCC8',
+      label:'Foundry\nCampbell River', detail:'Foundry Campbell River — integrated youth services, ages 12–24. Mental health, substance use supports, social connection.' },
+    { id:'avi', x:320, y:120, r:34, color:'#B85042', textColor:'#E8DCC8',
+      label:'AVI Health\n& Community', detail:'AVI Health & Community Services — harm reduction services, CRCL program, North Island presence. Frontline overdose response and housing support.' },
+
+    // SCHOOLS
+    { id:'sd71', x:-420, y:-80, r:34, color:'#7A6022', textColor:'#C9A84C',
+      label:'SD71\nComox Valley', detail:'School District 71 — Comox Valley. Youth outreach, prevention partnerships, school-based harm reduction programming.' },
+    { id:'sd72', x:-440, y:160, r:32, color:'#7A6022', textColor:'#E8DCC8',
+      label:'SD72\nCampbell River', detail:'School District 72 — Campbell River. School-based youth support, partnership on prevention and wellness programming.' },
+    { id:'nic', x:-200, y:380, r:30, color:'#7A6022', textColor:'#C9A84C',
+      label:'North Island\nCollege', detail:'North Island College — micro-credential delivery partnerships, employment pathways, WorkBC/ISET connections for youth.' },
+
+    // FUNDING / RESEARCH
+    { id:'bccsu', x:360, y:-220, r:32, color:'#9B3A2A', textColor:'#E8DCC8',
+      label:'BCCSU', detail:'BC Centre on Substance Use · PWLLE leadership · Youth-led research partnerships · Evidence base for harm reduction programming.' },
+    { id:'phac', x:160, y:360, r:28, color:'#5A3572', textColor:'#D4A8F0',
+      label:'PHAC\nYSUPP', detail:'Public Health Agency of Canada — Youth Substance Use Prevention Program, Youth Mental Health Fund. Federal funding partner.' },
+    { id:'parker', x:-60, y:-420, r:28, color:'#3A6B4A', textColor:'#84B59F',
+      label:'Parker &amp; Assu\nConsulting', detail:'Indigenous-led consulting for PWLLE · Rachel (We Wai Kai Nation) &amp; Kevin — Parker &amp; Assu Consulting.' },
+    { id:'unbrokenhiphop', x:-500, y:300, r:28, color:'#B85042', textColor:'#E8DCC8',
+      label:'Unbroken Chain\nHip Hop + Harm Red.', detail:'Unbroken Chain — youth hip hop nights and harm reduction programming. Indigenous youth outreach through culture and music. Community-based connection for youth.' },
+    { id:'komoksyouth', x:-260, y:-320, r:26, color:'#1E4D30', textColor:'#C9A84C',
+      label:"K'ómoks\nYouth Lead", detail:"K'ómoks First Nation Youth Coordinator — youth programming and community connection on K'ómoks territory." },
+    { id:'komokshr', x:-400, y:-260, r:26, color:'#1E4D30', textColor:'#84B59F',
+      label:"K'ómoks\nHarm Red. Lead", detail:"K'ómoks First Nation Harm Reduction Coordinator — harm reduction support and outreach for youth and community members on K'ómoks territory." },
+    { id:'nalatsi', x:-500, y:-140, r:28, color:'#7A6022', textColor:'#C9A84C',
+      label:"Nala'atsi\nSchool (SD71)", detail:"Nala'atsi Aboriginal Education — SD71 Indigenous education program. School-based cultural support, land-based learning, and connection for Indigenous youth in the Comox Valley." },
+    { id:'warriors', x:420, y:-320, r:26, color:'#2C5F2D', textColor:'#C9A84C',
+      label:'Warrior Group\n(Daryle Mills)', detail:'Warrior Group led by Daryle Mills — land-based leadership and cultural programming for youth. Potential co-delivery partner for Stream 2: Identity &amp; Culture.' },
+    { id:'hase', x:460, y:200, r:30, color:'#2E7D82', textColor:'#E8DCC8',
+      label:"Hase' Breath\nof Life", detail:"N'alag̱a (Avis O'Brien), Haida/Kwakwaka'wakw — Nalaga Consulting. Hase' Breath of Life: 12-week program using Kwakwaka'wakw land-based practices, breath and embodiment as self-regulation. Harm reduction as resistance to the opioid epidemic. Equips facilitators, Elders, and mental health professionals. nalagaconsulting.com/hase" },
+    { id:'cvag', x:300, y:-420, r:26, color:'#B85042', textColor:'#E8DCC8',
+      label:'CVAG Youth\nMedia Project', detail:'Comox Valley Art Gallery — Youth Media Project. Youth-led digital storytelling, media arts, and creative expression programming. Stream 3 partner.' },
+    { id:'clamgarden', x:-420, y:-280, r:30, color:'#2C5F2D', textColor:'#E8DCC8',
+      label:'Loxiwe\nClam Gardens', detail:"Loxiwe — Clam Garden Revitalization Projects. Ancient Indigenous mariculture practiced across North Island territories for 3,500+ years. Revitalized by Nations including Nanwakolas member Nations. Offers food security and land stewardship, deep connection to culture and territory, and powerful intergenerational learning — youth and Elders working side by side on the same land their ancestors tended. Stream 1 (Belonging) and Stream 2 (Identity & Culture) partner." },
+  ];
+
+  const EDGES = [
+    ['pf','komoks'],['pf','wewaikal'],['pf','wewaykum'],
+    ['pf','islandhealth'],['pf','fnha'],['pf','foundrycv'],['pf','foundrycr'],
+    ['pf','wachiay'],['pf','avi'],['pf','sd71'],['pf','bccsu'],
+    ['komoks','wachiay'],['komoks','sd71'],['komoks','islandhealth'],
+    ['komoks','komoksyouth'],['komoks','komokshr'],['komoks','nalatsi'],
+    ['wewaikal','sd72'],['wewaikal','foundrycr'],
+    ['wewaykum','foundrycr'],
+    ['islandhealth','streetdegree'],['islandhealth','avi'],
+    ['fnha','komoks'],['fnha','bccsu'],
+    ['streetdegree','avi'],
+    ['foundrycv','nic'],['foundrycv','sd71'],
+    ['foundrycr','sd72'],
+    ['bccsu','streetdegree'],
+    ['phac','fnha'],['phac','foundrycv'],
+    ['parker','komoks'],['parker','pf'],
+    ['sd72','nic'],
+    ['unbrokenhiphop','wachiay'],['unbrokenhiphop','foundrycv'],
+    ['nalatsi','sd71'],
+    ['warriors','pf'],
+    ['hase','avi'],['hase','pf'],
+    ['cvag','sd71'],['cvag','pf'],
+    ['clamgarden','komoks'],['clamgarden','wewaikal'],['clamgarden','wewaykum'],['clamgarden','pf'],
+  ];
+
+  const nodeMap = {};
+  NODES.forEach(n => nodeMap[n.id] = n);
+
+  function lighten(hex, amt) {
+    const n = parseInt(hex.slice(1), 16);
+    const r = Math.min(255, (n >> 16) + amt);
+    const g = Math.min(255, ((n >> 8) & 0xff) + amt);
+    const b = Math.min(255, (n & 0xff) + amt);
+    return '#' + [r,g,b].map(v => v.toString(16).padStart(2,'0')).join('');
+  }
+
+  function drawEdge(e) {
+    const a = nodeMap[e[0]], b = nodeMap[e[1]];
+    if (!a || !b) return;
+    const ax = a.x * zoom + W/2 + panX, ay = a.y * zoom + H/2 + panY;
+    const bx = b.x * zoom + W/2 + panX, by = b.y * zoom + H/2 + panY;
+    ctx.beginPath();
+    ctx.moveTo(ax, ay);
+    ctx.lineTo(bx, by);
+    ctx.strokeStyle = 'rgba(132,181,159,0.18)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  }
+
+  function drawNode(n, hovered) {
+    const x = n.x * zoom + W/2 + panX;
+    const y = n.y * zoom + H/2 + panY;
+    const r = n.r * zoom;
+
+    ctx.shadowColor = 'rgba(0,0,0,0.45)';
+    ctx.shadowBlur = hovered ? 22 : 8;
+
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, Math.PI * 2);
+    ctx.fillStyle = hovered ? lighten(n.color, 25) : n.color;
+    ctx.fill();
+
+    if (hovered) {
+      ctx.strokeStyle = '#C9A84C';
+      ctx.lineWidth = 2.5;
+      ctx.stroke();
+    }
+    ctx.shadowBlur = 0;
+
+    const lines = n.label.split('\n');
+    const fontSize = Math.max(7, Math.min(12, r * 0.3));
+    ctx.font = `bold ${fontSize}px 'DM Sans', sans-serif`;
+    ctx.fillStyle = n.textColor;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    const lineH = fontSize * 1.35;
+    const startY = y - (lines.length - 1) * lineH / 2;
+    lines.forEach((line, i) => ctx.fillText(line, x, startY + i * lineH));
+  }
+
+  function hitNode(mx, my) {
+    for (const n of NODES) {
+      const x = n.x * zoom + W/2 + panX;
+      const y = n.y * zoom + H/2 + panY;
+      const dx = mx - x, dy = my - y;
+      if (Math.sqrt(dx*dx+dy*dy) < n.r * zoom) return n;
+    }
+    return null;
+  }
+
+  function render() {
+    ctx.clearRect(0, 0, W, H);
+    ctx.fillStyle = '#111A0E';
+    ctx.fillRect(0, 0, W, H);
+    EDGES.forEach(drawEdge);
+    NODES.forEach(n => { if (n !== hoveredNode) drawNode(n, false); });
+    if (hoveredNode) drawNode(hoveredNode, true);
+    requestAnimationFrame(render);
+  }
+
+  canvas.addEventListener('mousemove', e => {
+    const rect = canvas.getBoundingClientRect();
+    const mx = (e.clientX - rect.left) * (canvas.width / rect.width);
+    const my = (e.clientY - rect.top) * (canvas.height / rect.height);
+
+    if (dragging && lastMouse) {
+      panX += (mx - lastMouse.x);
+      panY += (my - lastMouse.y);
+      lastMouse = { x: mx, y: my };
+    }
+
+    const hit = hitNode(mx, my);
+    hoveredNode = hit;
+    canvas.style.cursor = hit ? 'pointer' : (dragging ? 'grabbing' : 'grab');
+
+    if (hit) {
+      tooltip.style.display = 'block';
+      tooltip.style.left = (e.clientX - wrapper.getBoundingClientRect().left + 14) + 'px';
+      tooltip.style.top  = (e.clientY - wrapper.getBoundingClientRect().top  - 10) + 'px';
+      tooltip.innerHTML = `<strong>${hit.label.replace('\n', ' ')}</strong>${hit.detail}`;
+    } else {
+      tooltip.style.display = 'none';
+    }
+  });
+
+  canvas.addEventListener('mousedown', e => {
+    dragging = true;
+    const rect = canvas.getBoundingClientRect();
+    lastMouse = {
+      x: (e.clientX - rect.left) * (canvas.width / rect.width),
+      y: (e.clientY - rect.top)  * (canvas.height / rect.height)
+    };
+  });
+  canvas.addEventListener('mouseup',    () => { dragging = false; lastMouse = null; });
+  canvas.addEventListener('mouseleave', () => { dragging = false; tooltip.style.display='none'; });
+
+  canvas.addEventListener('wheel', e => {
+    e.preventDefault();
+    const rect = canvas.getBoundingClientRect();
+    const mx = (e.clientX - rect.left) * (canvas.width / rect.width);
+    const my = (e.clientY - rect.top)  * (canvas.height / rect.height);
+    const delta = e.deltaY > 0 ? 0.9 : 1.1;
+    panX = mx - (mx - panX) * delta;
+    panY = my - (my - panY) * delta;
+    zoom = Math.max(0.25, Math.min(3, zoom * delta));
+  }, { passive: false });
+
+  window.addEventListener('resize', () => {
+    W = canvas.width  = wrapper.clientWidth;
+    H = canvas.height = wrapper.clientHeight;
+  });
+
+  render();
+}
+</script>
+
+<script>
+// Reference superscript tooltips
+const refTooltip = document.getElementById('ref-tooltip');
+document.querySelectorAll('sup.ref').forEach(el => {
+  el.addEventListener('mouseenter', e => {
+    refTooltip.textContent = el.getAttribute('title');
+    refTooltip.style.display = 'block';
+  });
+  el.addEventListener('mousemove', e => {
+    const x = Math.min(e.clientX + 12, window.innerWidth - 360);
+    const y = Math.max(e.clientY - 10, 8);
+    refTooltip.style.left = x + 'px';
+    refTooltip.style.top = y + 'px';
+  });
+  el.addEventListener('mouseleave', () => {
+    refTooltip.style.display = 'none';
+  });
+});
+</script>
+
+<script>
+// Iceberg tab tooltips
+document.querySelectorAll('.ice-layer-v2').forEach(el => {
+  el.addEventListener('mouseenter', e => {
+    const tip = document.getElementById('ice-tip-v2');
+    tip.querySelector('strong').textContent = el.dataset.title;
+    tip.querySelector('span').textContent = el.dataset.body;
+    tip.style.opacity = '1';
+  });
+  el.addEventListener('mousemove', e => {
+    const tip = document.getElementById('ice-tip-v2');
+    const wrap = tip.closest('div').getBoundingClientRect();
+    const x = Math.min(e.clientX - wrap.left + 14, wrap.width - 320);
+    const y = Math.max(e.clientY - wrap.top - 10, 8);
+    tip.style.left = x + 'px';
+    tip.style.top = y + 'px';
+  });
+  el.addEventListener('mouseleave', () => {
+    document.getElementById('ice-tip-v2').style.opacity = '0';
+  });
+});
+
+// Reference superscript tooltips
+const refTooltip = document.getElementById('ref-tooltip');
+document.querySelectorAll('sup.ref').forEach(el => {
+  el.addEventListener('mouseenter', e => {
+    refTooltip.textContent = el.getAttribute('title');
+    refTooltip.style.display = 'block';
+  });
+  el.addEventListener('mousemove', e => {
+    const x = Math.min(e.clientX + 12, window.innerWidth - 360);
+    const y = Math.max(e.clientY - 10, 8);
+    refTooltip.style.left = x + 'px';
+    refTooltip.style.top = y + 'px';
+  });
+  el.addEventListener('mouseleave', () => {
+    refTooltip.style.display = 'none';
+  });
+});
+</script>
+
+</body>
+</html>
